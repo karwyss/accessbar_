@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktualności i Promocje | Poczuj więcej – Access Bars Therapy</title>
+    <meta name="description" content="Sprawdź aktualne promocje, wydarzenia i nowości w gabinecie Access Bars w Wadowicach. Terapia energetyczna, sesje relaksacyjne i specjalne oferty.">
+    <meta name="keywords" content="Access Bars promocje, Wadowice wellness, terapia energetyczna oferta, masaż rabat">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ========== RESET & VARIABLES ========== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary:   #26522e;
+            --primary-d: #1a3b20;
+            --primary-l: #3a6b42;
+            --secondary: #bad3cd;
+            --accent:    #d4a96a;
+            --light:     #b2c19f;
+            --pale:      #eaf1e8;
+            --sand:      #f5f0e8;
+            --dark:      #505c50;
+            --text:      #3a4a47;
+            --error:     #ef4444;
+            --success:   #4caf50;
+            --white:     #ffffff;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* ========== TOP BAR ========== */
+        .top-bar {
+            background: var(--primary-d);
+            color: var(--white);
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: .02em;
+        }
+        .top-bar a { color: var(--secondary); font-weight: 700; transition: opacity .2s; }
+        .top-bar a:hover { opacity: .8; }
+        .top-bar p { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(0,0,0,.08);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .logo-icon img { width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); }
+        .logo-icon-fallback { color: white; font-size: 18px; }
+        .logo-text h1 { font-size: 22px; font-weight: 700; color: var(--dark); line-height: 1.1; }
+        .logo-text p { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); font-weight: 700; font-family: 'Lato', sans-serif; }
+
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .nav-links a { font-size: 15px; font-weight: 500; color: var(--dark); transition: color .2s; white-space: nowrap; font-family: 'Lato', sans-serif; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active-page { color: var(--primary); font-weight: 700; }
+        .nav-links .nav-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background .3s, transform .2s !important;
+        }
+        .nav-links .nav-cta:hover { background: var(--primary-l) !important; transform: translateY(-1px); }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 42px; height: 42px;
+            background: var(--primary);
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 300;
+        }
+        .hamburger span {
+            display: block; width: 100%; height: 3px;
+            background: var(--white); border-radius: 3px;
+            transition: all .3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,.35);
+            z-index: 150;
+        }
+        .mobile-overlay.show { display: block; }
+
+        /* ========== HERO PROMO ========== */
+        .promo-hero {
+            background: linear-gradient(135deg, var(--light) 0%, #c8d8b5 50%, var(--secondary) 100%);
+            padding: 70px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .promo-hero-pattern {
+            position: absolute; inset: 0;
+            background-image: radial-gradient(circle at 20% 30%, rgba(38,82,46,.09) 2px, transparent 2px),
+                              radial-gradient(circle at 80% 70%, rgba(38,82,46,.06) 2px, transparent 2px);
+            background-size: 48px 48px, 64px 64px;
+            pointer-events: none;
+        }
+        .promo-hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 0 24px; }
+        .promo-hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,.7); backdrop-filter: blur(8px);
+            border: 1px solid rgba(38,82,46,.2);
+            padding: 8px 18px; border-radius: 50px;
+            font-size: 13px; font-weight: 700; color: var(--primary);
+            margin-bottom: 20px; letter-spacing: .05em;
+        }
+        .promo-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--dark); margin-bottom: 16px;
+        }
+        .promo-hero h1 span { color: var(--primary); font-style: italic; }
+        .promo-hero p { font-size: 17px; color: var(--text); font-weight: 300; }
+
+        /* ========== FEATURED CARD ========== */
+        .featured-wrap {
+            max-width: 1200px; margin: 0 auto 50px;
+            padding: 0 24px;
+        }
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: stretch;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(38,82,46,.18);
+            border: 1px solid var(--secondary);
+            background: linear-gradient(135deg, var(--pale) 0%, white 100%);
+        }
+        .featured-img {
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100%;
+            display: flex;
+        }
+        .featured-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            transition: transform .6s;
+            flex: 1;
+        }
+        .featured-card:hover .featured-img img { transform: scale(1.04); }
+        .featured-img-placeholder {
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: rgba(255,255,255,.75); gap: 14px;
+        }
+        .featured-img-placeholder i { font-size: 60px; opacity: .5; }
+        .featured-img-placeholder p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; }
+
+        .featured-body {
+            padding: 48px 44px;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .featured-badge {
+            display: inline-block;
+            background: var(--primary); color: white;
+            padding: 8px 20px; border-radius: 30px;
+            font-size: 13px; font-weight: 700;
+            margin-bottom: 20px; width: fit-content;
+            letter-spacing: .04em;
+        }
+        .featured-body h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--dark); margin-bottom: 14px;
+        }
+        .featured-body p {
+            font-size: 16px; color: var(--text);
+            line-height: 1.8; margin-bottom: 22px; font-weight: 300;
+        }
+        .featured-meta {
+            display: flex; gap: 24px; flex-wrap: wrap;
+            margin-bottom: 28px; font-size: 14px; color: #666;
+        }
+        .featured-meta i { color: var(--primary); margin-right: 5px; }
+        .btn-promo {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 32px;
+            background: var(--primary); color: white;
+            border-radius: 50px; font-weight: 700; font-size: 15px;
+            border: 2px solid var(--primary);
+            transition: all .3s; width: fit-content;
+            font-family: 'Lato', sans-serif; cursor: pointer;
+        }
+        .btn-promo:hover { background: var(--primary-l); border-color: var(--primary-l); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(38,82,46,.2); }
+        .btn-outline-green {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 32px;
+            background: transparent; color: var(--primary);
+            border-radius: 50px; font-weight: 700; font-size: 15px;
+            border: 2px solid var(--primary);
+            transition: all .3s; width: fit-content;
+            font-family: 'Lato', sans-serif; cursor: pointer;
+        }
+        .btn-outline-green:hover { background: var(--primary); color: white; transform: translateY(-2px); }
+
+        /* ========== FILTERS ========== */
+        .filters-wrap {
+            display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+            padding: 0 24px; margin: 44px 0 36px;
+        }
+        .filter-btn {
+            padding: 11px 26px;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            background: transparent; color: var(--primary);
+            font-weight: 700; font-size: 14px; letter-spacing: .03em;
+            cursor: pointer; transition: all .25s;
+            font-family: 'Lato', sans-serif;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary); color: white;
+        }
+
+        /* ========== POSTS GRID ========== */
+        .posts-section {
+            max-width: 1200px; margin: 0 auto 60px;
+            padding: 0 24px;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,.08);
+            border: 1px solid rgba(38,82,46,.08);
+            display: flex; flex-direction: column;
+            transition: transform .35s, box-shadow .35s;
+        }
+        .post-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(38,82,46,.15); }
+
+        .post-thumb {
+            height: 210px; overflow: hidden; position: relative;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        .post-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+        .post-card:hover .post-thumb img { transform: scale(1.07); }
+        .post-thumb-placeholder {
+            width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,.6); font-size: 44px;
+        }
+
+        .post-cat-badge {
+            position: absolute; top: 16px; left: 16px;
+            padding: 6px 14px; border-radius: 30px;
+            font-size: 12px; font-weight: 700;
+            box-shadow: 0 3px 8px rgba(0,0,0,.12); z-index: 2;
+        }
+        .cat-promo { background: #ff6b6b; color: white; }
+        .cat-event { background: #ff8c42; color: white; }
+        .cat-news  { background: var(--primary); color: white; }
+        .cat-tip   { background: #4a90e2; color: white; }
+
+        .post-date-badge {
+            position: absolute; top: 16px; right: 16px;
+            background: white; padding: 6px 14px; border-radius: 30px;
+            font-size: 12px; font-weight: 700; color: var(--dark);
+            box-shadow: 0 3px 8px rgba(0,0,0,.12); z-index: 2;
+        }
+
+        .post-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+        .post-title { font-size: 20px; color: var(--dark); margin-bottom: 10px; line-height: 1.35; }
+        .post-excerpt { font-size: 14px; color: var(--text); line-height: 1.75; flex: 1; margin-bottom: 16px; font-weight: 300; }
+        .post-meta {
+            display: flex; gap: 16px; flex-wrap: wrap;
+            font-size: 13px; color: #888;
+            border-top: 1px solid #f0f0f0; padding-top: 14px; margin-bottom: 16px;
+        }
+        .post-meta i { color: var(--primary); margin-right: 4px; }
+        .post-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 11px 24px;
+            border: 2px solid var(--primary); border-radius: 30px;
+            color: var(--primary); font-weight: 700; font-size: 14px;
+            transition: all .25s; font-family: 'Lato', sans-serif;
+        }
+        .post-link:hover { background: var(--primary); color: white; }
+
+        /* ========== NEWSLETTER ========== */
+        .newsletter-wrap {
+            max-width: 680px; margin: 0 auto 70px;
+            padding: 0 24px;
+        }
+        .newsletter-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-l) 100%);
+            border-radius: 32px; padding: 48px 40px;
+            text-align: center; color: white;
+            box-shadow: 0 24px 48px rgba(38,82,46,.25);
+        }
+        .newsletter-box h2 { font-size: 2rem; margin-bottom: 12px; color: white; }
+        .newsletter-box p { font-size: 16px; opacity: .88; margin-bottom: 28px; font-weight: 300; }
+        .newsletter-form {
+            display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+        }
+        .newsletter-input {
+            flex: 1; min-width: 240px;
+            padding: 14px 22px; border: none; border-radius: 50px;
+            font-size: 15px; outline: none;
+            font-family: 'Lato', sans-serif;
+        }
+        .newsletter-btn {
+            padding: 14px 32px; border: 2px solid white; border-radius: 50px;
+            background: transparent; color: white;
+            font-weight: 700; font-size: 15px; cursor: pointer;
+            transition: all .3s; font-family: 'Lato', sans-serif;
+        }
+        .newsletter-btn:hover { background: white; color: var(--primary); }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--dark); color: rgba(255,255,255,.75);
+            padding: 48px 0; text-align: center;
+        }
+        .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .footer-logo {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin-bottom: 20px;
+        }
+        .footer-logo-icon {
+            width: 42px; height: 42px; border-radius: 50%;
+            background: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .footer-logo-icon i { color: white; font-size: 18px; }
+        .footer-logo-text h2 { font-size: 20px; color: white; font-family: 'Playfair Display', serif; }
+        .footer-logo-text p { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; opacity: .7; font-family: 'Lato', sans-serif; }
+        .footer-desc { max-width: 500px; margin: 0 auto 28px; font-size: 15px; opacity: .8; line-height: 1.7; }
+        .footer-border { border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px; }
+        .footer-copyright { font-size: 13px; opacity: .55; }
+
+        /* ========== FLOATING SOCIAL ========== */
+        .social-float {
+            position: fixed; left: 18px; top: 50%; transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 10px; z-index: 100;
+        }
+        .soc-btn {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: white; color: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,.15);
+            border: 2px solid var(--primary);
+            transition: all .3s; position: relative;
+        }
+        .soc-btn:hover { transform: translateX(4px) scale(1.08); box-shadow: 0 6px 20px rgba(38,82,46,.28); }
+        .soc-btn.fb:hover { background: #1877f2; border-color: #1877f2; color: white; }
+        .soc-btn.ig:hover { background: linear-gradient(45deg,#f09433,#d62976,#962fbf,#4f5bd5); border-color: transparent; color: white; }
+        .soc-btn.em:hover { background: #ea4335; border-color: #ea4335; color: white; }
+        .soc-btn.wa:hover { background: #25d366; border-color: #25d366; color: white; }
+        .soc-btn.ph:hover { background: var(--primary); color: white; }
+        .soc-tooltip {
+            position: absolute; left: 58px;
+            background: var(--primary-d); color: white;
+            padding: 5px 14px; border-radius: 20px;
+            font-size: 13px; font-family: 'Lato',sans-serif; font-weight: 600;
+            white-space: nowrap; opacity: 0; pointer-events: none;
+            transition: all .25s;
+        }
+        .soc-btn:hover .soc-tooltip { opacity: 1; left: 64px; }
+
+        /* ========== POPUP ========== */
+        .popup-wrap {
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+            z-index: 9999; animation: slideUp .35s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translate(-50%,20px); }
+            to   { opacity: 1; transform: translate(-50%,0); }
+        }
+        .popup-box {
+            padding: 14px 22px; border-radius: 16px;
+            box-shadow: 0 16px 32px rgba(0,0,0,.18);
+            display: flex; align-items: center; gap: 10px;
+            color: white; font-weight: 600; font-size: 15px;
+        }
+        .popup-box.success { background: var(--success); }
+        .popup-box.error   { background: var(--error); }
+
+        /* ========== FADE-IN ========== */
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+        .fade-up.in { opacity: 1; transform: translateY(0); }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .featured-card { grid-template-columns: 1fr; }
+            .featured-img { height: 280px; min-height: 280px; }
+            .featured-body { padding: 32px 28px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .posts-grid { grid-template-columns: 1fr; }
+            .social-float { display: none; }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 0; right: -100%;
+                width: 78%; max-width: 320px; height: 100vh;
+                background: white;
+                flex-direction: column !important; display: flex !important;
+                padding: 90px 28px 40px; gap: 20px !important;
+                z-index: 250;
+                box-shadow: -6px 0 30px rgba(0,0,0,.15);
+                transition: right .3s ease;
+            }
+            .nav-links.open { right: 0; }
+            .nav-links a { font-size: 17px; padding: 10px 0; border-bottom: 1px solid var(--pale); color: var(--dark) !important; }
+            .nav-links .nav-cta { border: none; padding: 14px 24px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== TOP BAR ========== -->
+<div class="top-bar">
+    <p>
+        <i class="fas fa-phone-alt"></i>
+        Zadzwoń i umów się:&nbsp;<a href="tel:+48601064332"><strong>601 064 332</strong></a>
+        &nbsp;|&nbsp;
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="https://maps.app.goo.gl/jPF9UhY2uBkEjwQ38" target="_blank">Wadowice, ul. Lwowska 16</a>
+    </p>
+</div>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="poczuj-wiecej.html" class="logo" style="text-decoration:none;">
+            <div class="logo-icon">
+                <div class="logo-icon-fallback"><i class="fas fa-spa"></i></div>
+            </div>
+            <div class="logo-text">
+                <h1>Poczuj więcej</h1>
+                <p>Access Bars Therapy</p>
+            </div>
+        </a>
+
+        <div class="nav-links" id="navLinks">
+            <a href="poczuj-wiecej.html#terapeutka">O Access Bars</a>
+            <a href="poczuj-wiecej.html#uslugi">Oferta</a>
+            <a href="poczuj-wiecej.html#galeria">Galeria</a>
+            <a href="promotions.html" class="active-page">Promocje</a>
+            <a href="poczuj-wiecej.html#godziny">Godziny</a>
+            <a href="poczuj-wiecej.html#zapisy" class="nav-cta">Zapisy Online</a>
+        </div>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- ========== HERO ========== -->
+<section class="promo-hero">
+    <div class="promo-hero-pattern"></div>
+    <div class="promo-hero-inner fade-up">
+        <div class="promo-hero-badge">
+            <i class="fas fa-tag"></i> Aktualne oferty
+        </div>
+        <h1>Aktualności i <span>Promocje</span></h1>
+        <p>Bądź na bieżąco z nowościami, wydarzeniami i specjalnymi ofertami</p>
+    </div>
+</section>
+
+<!-- ========== WYRÓŻNIONY WPIS ========== -->
+<div class="featured-wrap" style="margin-top: 50px;">
+    <div class="featured-card fade-up">
+        <div class="featured-img">
+            <img src="./pictures/patientwithmarta.png" alt="Promocja wiosenna – sesje Access Bars w obniżonej cenie" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="featured-img-placeholder" style="display:none">
+                <i class="fas fa-spa"></i>
+                <p>Sesja Access Bars</p>
+            </div>
+        </div>
+        <div class="featured-body">
+            <span class="featured-badge">🔥 PROMOCJA WIOSENNA</span>
+            <h2>Wiosenny Detoks z Access Bars</h2>
+            <p>Marzec to czas odnowy! Skorzystaj z wyjątkowej oferty i doświadcz głębokiego oczyszczenia umysłu. Przez cały marzec wszystkie sesje Access Bars w promocyjnej cenie <strong>80 zł zamiast 100 zł!</strong></p>
+            <div class="featured-meta">
+                <span><i class="far fa-calendar-alt"></i>Ważne do: 31.03.2025</span>
+                <span><i class="fas fa-users"></i>Limit: 20 miejsc</span>
+                <span><i class="fas fa-tag"></i>Oszczędzasz: 20 zł</span>
+            </div>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <a href="poczuj-wiecej.html#zapisy" class="btn-promo"><i class="fas fa-calendar-check"></i>Skorzystaj z promocji</a>
+                <a href="tel:+48601064332" class="btn-outline-green"><i class="fas fa-phone-alt"></i>Zadzwoń</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== FILTRY ========== -->
+<div class="filters-wrap fade-up">
+    <button class="filter-btn active" data-cat="all">Wszystkie</button>
+    <button class="filter-btn" data-cat="promo">Promocje</button>
+    <button class="filter-btn" data-cat="event">Wydarzenia</button>
+    <button class="filter-btn" data-cat="news">Nowości</button>
+    <button class="filter-btn" data-cat="tip">Porady</button>
+</div>
+
+<!-- ========== SIATKA WPISÓW ========== -->
+<div class="posts-section">
+    <div class="posts-grid" id="postsGrid">
+
+        <!-- Wpis 1 – Promocja -->
+        <div class="post-card fade-up" data-cat="promo">
+            <div class="post-thumb">
+                <img src="./pictures/patient.png" alt="Rabat dla stałych klientów" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="post-thumb-placeholder" style="display:none"><i class="fas fa-percent"></i></div>
+                <span class="post-cat-badge cat-promo">Promocja</span>
+                <span class="post-date-badge">15.03.2025</span>
+            </div>
+            <div class="post-body">
+                <h3 class="post-title">-20% dla stałych klientów</h3>
+                <p class="post-excerpt">Specjalna oferta dla osób, które były u nas przynajmniej 3 razy. Rabat 20% na dowolną sesję przez cały kwiecień! Dziękujemy za zaufanie i zapraszamy.</p>
+                <div class="post-meta">
+                    <span><i class="far fa-clock"></i>Ważne do: 30.04</span>
+                    <span><i class="far fa-user"></i>Dla stałych klientów</span>
+                </div>
+                <a href="poczuj-wiecej.html#zapisy" class="post-link"><i class="fas fa-arrow-right"></i>Zarezerwuj</a>
+            </div>
+        </div>
+
+        <!-- Wpis 2 – Wydarzenie -->
+        <div class="post-card fade-up" data-cat="event" style="transition-delay:.08s">
+            <div class="post-thumb">
+                <img src="./pictures/gabinet.png" alt="Dzień otwarty w gabinecie Access Bars" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="post-thumb-placeholder" style="display:none"><i class="fas fa-door-open"></i></div>
+                <span class="post-cat-badge cat-event">Wydarzenie</span>
+                <span class="post-date-badge">10.03.2025</span>
+            </div>
+            <div class="post-body">
+                <h3 class="post-title">Dzień Otwarty – poznaj Access Bars</h3>
+                <p class="post-excerpt">Zapraszamy na bezpłatne pokazy i krótkie sesje pokazowe. Będzie okazja porozmawiać i doświadczyć Access Bars na własnej skórze. Wstęp wolny!</p>
+                <div class="post-meta">
+                    <span><i class="far fa-calendar-alt"></i>25.03.2025</span>
+                    <span><i class="far fa-clock"></i>16:00–19:00</span>
+                </div>
+                <a href="tel:+48601064332" class="post-link"><i class="fas fa-phone-alt"></i>Dowiedz się więcej</a>
+            </div>
+        </div>
+
+        <!-- Wpis 3 – Nowość -->
+        <div class="post-card fade-up" data-cat="news" style="transition-delay:.16s">
+            <div class="post-thumb">
+                <img src="./pictures/oils.png" alt="Nowa usługa Access Body MTVSS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="post-thumb-placeholder" style="display:none"><i class="fas fa-star"></i></div>
+                <span class="post-cat-badge cat-news">Nowość</span>
+                <span class="post-date-badge">05.03.2025</span>
+            </div>
+            <div class="post-body">
+                <h3 class="post-title">Nowa usługa: Access Body MTVSS</h3>
+                <p class="post-excerpt">Wprowadzamy potężną technikę pracy z całym ciałem! Pierwsze sesje w promocyjnej cenie 96 zł zamiast 120 zł. Ilość miejsc ograniczona.</p>
+                <div class="post-meta">
+                    <span><i class="fas fa-tag"></i>Promo: -20%</span>
+                    <span><i class="far fa-clock"></i>Limit: 10 osób</span>
+                </div>
+                <a href="poczuj-wiecej.html#zapisy" class="post-link"><i class="fas fa-arrow-right"></i>Sprawdź nowość</a>
+            </div>
+        </div>
+
+        <!-- Wpis 4 – Porada -->
+        <div class="post-card fade-up" data-cat="tip" style="transition-delay:.24s">
+            <div class="post-thumb">
+                <img src="./pictures/martaspatient.png" alt="Jak przygotować się do sesji Access Bars" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="post-thumb-placeholder" style="display:none"><i class="fas fa-lightbulb"></i></div>
+                <span class="post-cat-badge cat-tip">Porada</span>
+                <span class="post-date-badge">28.02.2025</span>
+            </div>
+            <div class="post-body">
+                <h3 class="post-title">Jak przygotować się do sesji?</h3>
+                <p class="post-excerpt">Dowiedz się, jak maksymalnie wykorzystać czas sesji. Co zrobić przed, w trakcie i po zabiegu, żeby efekty były trwalsze i głębsze.</p>
+                <div class="post-meta">
+                    <span><i class="far fa-clock"></i>5 min czytania</span>
+                    <span><i class="fas fa-eye"></i>234 wyświetlenia</span>
+                </div>
+                <a href="#" class="post-link"><i class="fas fa-book-open"></i>Przeczytaj</a>
+            </div>
+        </div>
+
+        <!-- Wpis 5 – Promocja -->
+        <div class="post-card fade-up" data-cat="promo" style="transition-delay:.32s">
+            <div class="post-thumb">
+                <img src="./pictures/patientwithmarta.png" alt="Karnet na sesje Access Bars 3+1 gratis" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="post-thumb-placeholder" style="display:none"><i class="fas fa-gift"></i></div>
+                <span class="post-cat-badge cat-promo">Promocja</span>
+                <span class="post-date-badge">20.02.2025</span>
+            </div>
+            <div class="post-body">
+                <h3 class="post-title">Karnet 3+1 gratis</h3>
+                <p class="post-excerpt">Kup karnet na 3 sesje, a 4. otrzymasz całkowicie gratis! Idealna opcja dla osób, które chcą regularnie dbać o siebie. Ważność karnetu: 6 miesięcy.</p>
+                <div class="post-meta">
+                    <span><i class="fas fa-gift"></i>4 sesje w cenie 3</span>
+                    <span><i class="far fa-clock"></i>Ważność: 6 mies.</span>
+                </div>
+                <a href="poczuj-wiecej.html#zapisy" class="post-link"><i class="fas fa-arrow-right"></i>Kup karnet</a>
+            </div>
+        </div>
+
+        <!-- Wpis 6 – Wydarzenie -->
+        <div class="post-card fade-up" data-cat="event" style="transition-delay:.4s">
+            <div class="post-thumb">
+                <img src="./pictures/gabinet.png" alt="Webinar Access Bars online" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="post-thumb-placeholder" style="display:none"><i class="fas fa-video"></i></div>
+                <span class="post-cat-badge cat-event">Wydarzenie</span>
+                <span class="post-date-badge">15.02.2025</span>
+            </div>
+            <div class="post-body">
+                <h3 class="post-title">Webinar: Czym jest Access Bars?</h3>
+                <p class="post-excerpt">Darmowe spotkanie online – opowiemy o podstawach Access Bars i odpowiemy na Wasze pytania. Zapis przez telefon lub e-mail. Liczba miejsc ograniczona.</p>
+                <div class="post-meta">
+                    <span><i class="far fa-calendar-alt"></i>05.04.2025</span>
+                    <span><i class="fas fa-globe"></i>Online – bezpłatnie</span>
+                </div>
+                <a href="tel:+48601064332" class="post-link"><i class="fas fa-phone-alt"></i>Zapisz się</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ========== NEWSLETTER ========== -->
+<div class="newsletter-wrap fade-up">
+    <div class="newsletter-box">
+        <h2>Nie przegap promocji!</h2>
+        <p>Zapisz się do newslettera i jako pierwsza/y dowiaduj się o nowościach, wydarzeniach i specjalnych ofertach.</p>
+        <form class="newsletter-form" id="newsletterForm" novalidate>
+            <input type="email" class="newsletter-input" placeholder="Twój adres e-mail" required aria-label="Adres e-mail">
+            <button type="submit" class="newsletter-btn">Zapisz się</button>
+        </form>
+    </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-logo">
+            <div class="footer-logo-icon"><i class="fas fa-spa"></i></div>
+            <div class="footer-logo-text">
+                <h2>Poczuj więcej</h2>
+                <p>Access Bars Therapy</p>
+            </div>
+        </div>
+        <p class="footer-desc">Profesjonalne sesje Access Bars i terapie energetyczne z indywidualnym podejściem do każdego Klienta. Twoja droga do wewnętrznego spokoju i lekkości.</p>
+        <div class="footer-border">
+            <p class="footer-copyright">© <span id="year"></span> Poczuj więcej – Access Bars Therapy, Wadowice. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== FLOATING SOCIAL ========== -->
+<div class="social-float">
+    <a href="https://facebook.com/twojprofil" target="_blank" class="soc-btn fb"><i class="fab fa-facebook-f"></i><span class="soc-tooltip">Facebook</span></a>
+    <a href="https://instagram.com/twojprofil" target="_blank" class="soc-btn ig"><i class="fab fa-instagram"></i><span class="soc-tooltip">Instagram</span></a>
+    <a href="/cdn-cgi/l/email-protection#2a4145445e4b415e6a5a4549505f405d434f494f40045a46" class="soc-btn em"><i class="fas fa-envelope"></i><span class="soc-tooltip">E-mail</span></a>
+    <a href="https://wa.me/48601064332" target="_blank" class="soc-btn wa"><i class="fab fa-whatsapp"></i><span class="soc-tooltip">WhatsApp</span></a>
+    <a href="tel:+48601064332" class="soc-btn ph"><i class="fas fa-phone-alt"></i><span class="soc-tooltip">Zadzwoń</span></a>
+</div>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // Rok w stopce
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== MOBILE MENU =====
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navLinks  = document.getElementById('navLinks');
+    const overlay   = document.getElementById('mobileOverlay');
+    let menuOpen = false;
+
+    function toggleMenu(open) {
+        menuOpen = open !== undefined ? open : !menuOpen;
+        hamburger.classList.toggle('open', menuOpen);
+        navLinks.classList.toggle('open', menuOpen);
+        overlay.classList.toggle('show', menuOpen);
+    }
+
+    hamburger.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
+    overlay.addEventListener('click', () => toggleMenu(false));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+    // ===== FILTRY KATEGORII =====
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const postCards  = document.querySelectorAll('.post-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            const cat = this.dataset.cat;
+            postCards.forEach(card => {
+                const show = cat === 'all' || card.dataset.cat === cat;
+                card.style.display = show ? 'flex' : 'none';
+            });
+        });
+    });
+
+    // ===== NEWSLETTER =====
+    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        if (!email) return;
+        showPopup('Dziękujemy za zapis! Będziemy w kontakcie.', 'success');
+        this.reset();
+    });
+
+    // ===== POPUP =====
+    function showPopup(msg, type) {
+        const el = document.createElement('div');
+        el.className = 'popup-wrap';
+        el.innerHTML = `<div class="popup-box ${type}">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            ${msg}
+        </div>`;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 4500);
+    }
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+
+    // ===== FADE-IN =====
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('in'), i * 70);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poczuj więcej | Access Bars Therapy – Wadowice</title>
+    <meta name="description" content="Profesjonalne sesje Access Bars i terapie energetyczne w Wadowicach. Głęboki relaks, redukcja stresu i wewnętrzny spokój. Umów wizytę: 601 064 332.">
+    <meta name="keywords" content="Access Bars Wadowice, terapia energetyczna, redukcja stresu, masaż relaksacyjny, Access Consciousness, Wadowice">
+    <meta property="og:title" content="Poczuj więcej | Access Bars Therapy – Wadowice">
+    <meta property="og:description" content="Głęboki relaks i uwolnienie od stresu dzięki terapii Access Bars. Umów się już dziś!">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HealthAndBeautyBusiness",
+        "name": "Poczuj więcej – Access Bars Therapy",
+        "description": "Profesjonalne sesje Access Bars, terapie energetyczne i masaże relaksacyjne w Wadowicach.",
+        "telephone": "+48601064332",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ul. Lwowska 16",
+            "addressLocality": "Wadowice",
+            "postalCode": "34-100",
+            "addressCountry": "PL"
+        },
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "priceRange": "zł zł"
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary:    #26522e;
+            --primary-d:  #1a3b20;
+            --primary-l:  #3a6b42;
+            --secondary:  #bad3cd;
+            --accent:     #d4a96a;
+            --light:      #b2c19f;
+            --pale:       #eaf1e8;
+            --sand:       #f5f0e8;
+            --dark:       #505c50;
+            --text:       #3a4a47;
+            --error:      #ef4444;
+            --success:    #4caf50;
+            --white:      #ffffff;
+            --shadow-sm:  0 4px 12px rgba(38,82,46,.10);
+            --shadow-md:  0 10px 30px rgba(38,82,46,.15);
+            --shadow-lg:  0 20px 50px rgba(38,82,46,.20);
+            --radius-sm:  12px;
+            --radius-md:  20px;
+            --radius-lg:  30px;
+            --radius-xl:  40px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; line-height: 1.25; }
+
+        a { text-decoration: none; color: inherit; }
+
+        img { max-width: 100%; display: block; }
+
+        /* ========== TOP BAR ========== */
+        .top-bar {
+            background: var(--primary-d);
+            color: var(--white);
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: .02em;
+        }
+        .top-bar a { color: var(--secondary); font-weight: 700; transition: opacity .2s; }
+        .top-bar a:hover { opacity: .8; }
+        .top-bar p { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(0,0,0,.08);
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { display: flex; align-items: center; gap: 12px; }
+
+        .logo-icon {
+            width: 46px; height: 46px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .logo-icon img { width: 26px; height: 26px; object-fit: contain; filter: brightness(0) invert(1); }
+        .logo-icon-fallback {
+            width: 26px; height: 26px;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 16px;
+        }
+
+        .logo-text h1 { font-size: 22px; font-weight: 700; color: var(--dark); line-height: 1.1; }
+        .logo-text p { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); font-weight: 700; font-family: 'Lato', sans-serif; }
+
+        .nav-links { display: flex; align-items: center; gap: 28px; }
+        .nav-links a { font-size: 15px; font-weight: 500; color: var(--dark); transition: color .2s; white-space: nowrap; font-family: 'Lato', sans-serif; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links .nav-cta {
+            background: var(--primary);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: background .3s, transform .2s !important;
+        }
+        .nav-links .nav-cta:hover { background: var(--primary-l) !important; transform: translateY(-1px); }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 42px; height: 42px;
+            background: var(--primary);
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 300;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%; height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: all .3s ease;
+        }
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.35);
+            z-index: 150;
+        }
+        .mobile-overlay.show { display: block; }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: linear-gradient(135deg, var(--light) 0%, #c8d8b5 50%, var(--secondary) 100%);
+            position: relative;
+            padding: 80px 0 60px;
+            overflow: hidden;
+        }
+        .hero-pattern {
+            position: absolute; inset: 0;
+            background-image: radial-gradient(circle at 20% 20%, rgba(38,82,46,.08) 2px, transparent 2px),
+                              radial-gradient(circle at 80% 80%, rgba(38,82,46,.05) 2px, transparent 2px);
+            background-size: 48px 48px, 64px 64px;
+        }
+        .hero-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: .3;
+        }
+        .hero-blob-1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -80px; }
+        .hero-blob-2 { width: 300px; height: 300px; background: var(--accent); bottom: -50px; left: -60px; }
+
+        .hero-container {
+            position: relative;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {}
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,.75);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(38,82,46,.2);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 24px;
+            letter-spacing: .05em;
+        }
+        .hero-badge span { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); display: block; }
+
+        .hero h2 {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .hero h2 em { font-style: italic; color: var(--primary); }
+
+        .hero-sub {
+            font-size: 17px;
+            color: var(--text);
+            margin-bottom: 36px;
+            max-width: 480px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            transition: all .3s;
+            font-family: 'Lato', sans-serif;
+        }
+        .btn-primary:hover { background: var(--primary-l); border-color: var(--primary-l); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 30px;
+            background: transparent;
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 15px;
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            transition: all .3s;
+            font-family: 'Lato', sans-serif;
+        }
+        .btn-outline:hover { background: var(--primary); color: var(--white); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+            margin-top: 36px;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+            background: rgba(255,255,255,.65);
+            backdrop-filter: blur(8px);
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            min-width: 90px;
+        }
+        .hero-stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        .hero-stat-label { font-size: 12px; color: var(--text); margin-top: 4px; font-weight: 500; }
+
+        .hero-image-wrap {
+            position: relative;
+        }
+        .hero-image-frame {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            height: 460px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        .hero-image-frame img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .hero-image-placeholder {
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-l) 50%, var(--secondary) 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: white;
+            gap: 16px;
+        }
+        .hero-image-placeholder i { font-size: 80px; opacity: .6; }
+        .hero-image-placeholder p { font-size: 16px; opacity: .8; font-family: 'Playfair Display', serif; font-style: italic; }
+
+        .hero-card-float {
+            position: absolute;
+            bottom: -20px; left: -20px;
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-md);
+            display: flex; align-items: center; gap: 12px;
+            min-width: 200px;
+        }
+        .hero-card-float-icon {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--pale);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .hero-card-float-text strong { display: block; font-size: 16px; color: var(--dark); font-family: 'Playfair Display', serif; }
+        .hero-card-float-text span { font-size: 12px; color: var(--text); }
+
+        /* ========== SECTION COMMONS ========== */
+        section { padding: 80px 0; }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 12px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+            color: var(--primary); margin-bottom: 12px;
+            font-family: 'Lato', sans-serif;
+        }
+        .section-label::before, .section-label::after {
+            content: ''; display: block; width: 24px; height: 1.5px; background: var(--primary);
+        }
+        .section-header h3 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            color: var(--dark);
+            margin-bottom: 14px;
+        }
+        .section-header h3 span { color: var(--primary); }
+        .section-header p { color: var(--text); font-size: 17px; max-width: 600px; margin: 0 auto; font-weight: 300; }
+
+        .divider {
+            width: 56px; height: 3px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 4px;
+            margin: 16px auto;
+        }
+
+        /* ========== THERAPIST SECTION ========== */
+        .therapist-section { background: white; }
+
+        .therapist-grid {
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 60px;
+            align-items: center;
+            background: linear-gradient(135deg, var(--pale) 0%, var(--white) 100%);
+            border-radius: var(--radius-xl);
+            padding: 50px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(38,82,46,.08);
+        }
+
+        .therapist-img-wrap { position: relative; }
+        .therapist-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius-lg);
+            object-fit: cover;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--secondary);
+        }
+        .therapist-img-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius-lg);
+            background: linear-gradient(160deg, var(--primary), var(--primary-l), var(--secondary));
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: white; gap: 16px;
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--secondary);
+        }
+        .therapist-img-placeholder i { font-size: 70px; opacity: .6; }
+        .therapist-img-placeholder p { font-size: 15px; opacity: .8; font-family: 'Playfair Display', serif; font-style: italic; text-align: center; padding: 0 20px; }
+
+        .cert-badge {
+            position: absolute;
+            bottom: -16px; right: -16px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius-md);
+            padding: 14px 18px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+        .cert-badge i { font-size: 22px; margin-bottom: 4px; }
+        .cert-badge span { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; line-height: 1.3; }
+
+        .therapist-info {}
+        .therapist-info h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .therapist-info h3 {
+            font-size: 16px; font-weight: 400;
+            color: var(--text); font-family: 'Lato', sans-serif;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 16px; margin-bottom: 22px;
+            letter-spacing: .03em;
+        }
+        .therapist-info p {
+            color: var(--text); font-size: 16px; line-height: 1.85;
+            margin-bottom: 16px; font-weight: 300;
+        }
+        .therapist-signature {
+            margin-top: 24px;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--primary);
+            font-size: 19px;
+            padding: 16px 20px;
+            border-left: 3px solid var(--accent);
+            background: rgba(212,169,106,.08);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        /* ========== ABOUT ACCESS BARS ========== */
+        .about-section { background: var(--sand); }
+
+        .about-content {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 56px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(38,82,46,.08);
+        }
+        .about-content h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            color: var(--dark); text-align: center; margin-bottom: 28px;
+        }
+        .about-content h2 span { color: var(--primary); }
+        .about-content > p {
+            color: var(--text); font-size: 17px; line-height: 1.9;
+            margin-bottom: 18px; max-width: 800px; margin-left: auto; margin-right: auto;
+            text-align: center; font-weight: 300;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 40px;
+        }
+        .about-feature {
+            text-align: center;
+            padding: 28px 20px;
+            background: var(--pale);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(38,82,46,.1);
+            transition: transform .3s, box-shadow .3s;
+        }
+        .about-feature:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+        .about-feature i { font-size: 36px; color: var(--primary); margin-bottom: 14px; }
+        .about-feature h4 { font-size: 17px; color: var(--dark); margin-bottom: 8px; }
+        .about-feature p { font-size: 14px; color: var(--text); font-weight: 300; line-height: 1.7; }
+
+        /* ========== SERVICES ========== */
+        .services-section { background: white; }
+
+        .services-wrap { display: flex; justify-content: center; }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: visible;
+            border: 1px solid rgba(38,82,46,.1);
+            width: 100%;
+            max-width: 860px;
+            transition: transform .3s;
+        }
+        .service-card:hover { transform: translateY(-4px); }
+
+        .service-card-header {
+            padding: 32px 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-l) 100%);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .service-card-header-icon {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px;
+            color: white;
+            flex-shrink: 0;
+        }
+        .service-card-header h4 {
+            font-size: 24px; font-weight: 700; color: white;
+        }
+        .service-card-header p { font-size: 14px; color: rgba(255,255,255,.85); margin-top: 2px; font-family: 'Lato', sans-serif; }
+
+        .service-items { padding: 8px 40px 32px; list-style: none; }
+
+        .service-item {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(38,82,46,.08);
+        }
+        .service-item:last-child { border-bottom: none; }
+
+        .service-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .service-item-info h5 {
+            font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 6px;
+        }
+        .service-meta {
+            display: flex; align-items: center; gap: 8px;
+        }
+        .service-meta-chip {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: var(--pale);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 13px; font-weight: 500;
+        }
+        .service-price-box { text-align: right; }
+        .service-price-box .price {
+            font-size: 22px; font-weight: 700; color: var(--primary);
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 6px;
+        }
+        .btn-select {
+            padding: 9px 22px;
+            border-radius: 30px;
+            border: 2px solid var(--secondary);
+            background: var(--secondary);
+            color: var(--dark);
+            font-size: 14px; font-weight: 700;
+            cursor: pointer;
+            transition: all .3s;
+            font-family: 'Lato', sans-serif;
+        }
+        .btn-select:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            transform: scale(1.04);
+        }
+
+        /* ========== BOOKING FORM ========== */
+        .booking-section { background: var(--sand); }
+
+        .booking-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: visible;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .booking-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-l) 100%);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            padding: 32px 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .booking-header-icon {
+            width: 52px; height: 52px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; color: white;
+        }
+        .booking-header-text h4 { font-size: 22px; color: white; }
+        .booking-header-text p { font-size: 14px; color: rgba(255,255,255,.85); margin-top: 2px; font-family: 'Lato', sans-serif; }
+
+        .booking-form { padding: 40px; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-bottom: 28px;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 10px; position: relative; overflow: visible; }
+        .form-group.full { grid-column: span 2; }
+
+        .form-group label {
+            display: flex; align-items: center; gap: 8px;
+            font-weight: 700; font-size: 14px; color: var(--dark);
+            font-family: 'Lato', sans-serif; letter-spacing: .02em;
+        }
+        .form-group label i { color: var(--primary); width: 16px; }
+
+        .form-input {
+            width: 100%; padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius-sm);
+            font-size: 15px; color: var(--dark);
+            transition: border-color .3s, box-shadow .3s;
+            outline: none;
+            font-family: 'Lato', sans-serif;
+        }
+        .form-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(38,82,46,.1);
+        }
+
+        /* Custom Select */
+        .custom-select { position: relative; z-index: 100; }
+        .select-trigger {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            background: white;
+            transition: border-color .3s, box-shadow .3s;
+        }
+        .select-trigger:hover, .select-trigger.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(38,82,46,.1);
+        }
+        .select-trigger-inner { display: flex; align-items: center; gap: 10px; }
+        .select-placeholder { color: #9ca3af; font-size: 15px; }
+        .select-chosen-name { font-size: 15px; color: var(--dark); font-weight: 500; }
+        .select-chosen-meta { font-size: 13px; color: #6b7280; margin-top: 2px; }
+        .chevron { transition: transform .3s; color: var(--text); font-size: 13px; }
+        .chevron.open { transform: rotate(180deg); }
+
+        .select-dropdown {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0; right: 0;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0,0,0,.15);
+            z-index: 99999;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #f0f0f0;
+        }
+
+        .select-group-header {
+            position: sticky; top: 0;
+            background: var(--light);
+            padding: 10px 16px;
+            font-weight: 700; font-size: 13px;
+            color: var(--dark);
+            display: flex; align-items: center; gap: 10px;
+            letter-spacing: .06em; text-transform: uppercase;
+        }
+        .select-option {
+            padding: 14px 20px;
+            cursor: pointer;
+            border-bottom: 1px solid #fafafa;
+            transition: background .2s;
+        }
+        .select-option:last-child { border-bottom: none; }
+        .select-option:hover { background: var(--pale); }
+        .select-option.selected { background: var(--pale); }
+        .select-option-row { display: flex; justify-content: space-between; align-items: center; }
+        .select-option-row h6 { font-size: 15px; color: var(--dark); font-weight: 600; margin-bottom: 2px; font-family: 'Lato', sans-serif; }
+        .select-option-dur { font-size: 13px; color: #6b7280; }
+        .select-option-price { font-size: 15px; color: var(--primary); font-weight: 700; font-family: 'Playfair Display', serif; }
+
+        /* Time Grid Select */
+        .time-select { position: relative; z-index: 90; }
+        .time-group-label {
+            position: sticky; top: 0;
+            background: var(--light);
+            padding: 8px 16px;
+            font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+            color: var(--dark);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .time-grid-wrap { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; padding: 12px 16px; }
+        .time-chip {
+            text-align: center;
+            padding: 10px 6px;
+            border-radius: 10px;
+            cursor: pointer;
+            background: var(--pale);
+            font-size: 14px; font-weight: 500; color: var(--dark);
+            border: 1.5px solid transparent;
+            transition: all .2s;
+        }
+        .time-chip:hover { background: var(--secondary); transform: translateY(-1px); }
+        .time-chip.selected { background: var(--primary); color: white; border-color: var(--primary); }
+
+        /* Submit */
+        .submit-wrap { text-align: center; }
+        .btn-submit {
+            position: relative; overflow: hidden;
+            padding: 18px 60px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 17px; font-weight: 700;
+            letter-spacing: .06em; text-transform: uppercase;
+            cursor: pointer;
+            transition: all .3s;
+            font-family: 'Lato', sans-serif;
+        }
+        .btn-submit:hover:not(:disabled) {
+            background: var(--primary-l);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-submit:disabled { opacity: .55; cursor: not-allowed; }
+        .btn-submit .loader {
+            display: inline-block;
+            width: 18px; height: 18px;
+            border: 2px solid rgba(255,255,255,.4);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            vertical-align: middle; margin-right: 8px;
+        }
+        .form-note { margin-top: 12px; font-size: 13px; color: #9ca3af; }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ========== GALLERY ========== */
+        .gallery-section { background: white; overflow: hidden; }
+        .gallery-featured {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 20px;
+            height: 520px;
+            max-height: 520px;
+        }
+        .gallery-small {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 100%;
+            min-height: 0;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: box-shadow .4s;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 0;
+        }
+        .gallery-item:hover { box-shadow: var(--shadow-lg); }
+        .gallery-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform .6s;
+        }
+        .gallery-item:hover img { transform: scale(1.06); }
+        .gallery-item-placeholder {
+            width: 100%; height: 100%;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            color: rgba(255,255,255,.8); gap: 12px;
+        }
+        .gallery-item-placeholder i { font-size: 40px; opacity: .6; }
+        .gallery-item-placeholder p { font-size: 13px; opacity: .7; font-family: 'Playfair Display', serif; font-style: italic; }
+
+        .gallery-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(38,82,46,.88), transparent);
+            color: white;
+            padding: 24px 20px 20px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            opacity: 0;
+            transition: opacity .3s;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay h4 { font-size: 18px; margin-bottom: 3px; color: white; }
+        .gallery-overlay p { font-size: 13px; opacity: .85; font-family: 'Lato', sans-serif; }
+
+        .gallery-hint { text-align: center; margin-top: 20px; font-size: 14px; color: var(--text); font-style: italic; }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,.95);
+            z-index: 9999;
+            align-items: center; justify-content: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 90%; max-height: 90%; object-fit: contain; border-radius: 12px; }
+        .lightbox-close {
+            position: absolute; top: 28px; right: 32px;
+            color: white; font-size: 42px; cursor: pointer;
+            width: 48px; height: 48px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,.15);
+            line-height: 1;
+            transition: background .2s;
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,.25); }
+
+        /* ========== INFO SECTION ========== */
+        .info-section { background: var(--pale); }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .info-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 32px 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(38,82,46,.08);
+            transition: box-shadow .3s, transform .3s;
+            text-align: center;
+        }
+        .info-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+        .info-icon {
+            width: 64px; height: 64px;
+            border-radius: var(--radius-sm);
+            background: var(--secondary);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px; color: var(--dark);
+        }
+        .info-card h5 { font-size: 19px; color: var(--dark); margin-bottom: 12px; }
+        .info-card p { color: var(--text); white-space: pre-line; line-height: 1.8; font-weight: 300; }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--dark);
+            color: rgba(255,255,255,.75);
+            padding: 48px 0;
+            text-align: center;
+        }
+        .footer-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .footer-logo {
+            display: flex; align-items: center; justify-content: center;
+            gap: 12px; margin-bottom: 20px;
+        }
+        .footer-logo-icon {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .footer-logo-icon img { width: 24px; height: 24px; object-fit: contain; filter: brightness(0) invert(1); }
+        .footer-logo-icon i { color: white; font-size: 18px; }
+        .footer-logo-text h2 { font-size: 20px; color: white; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .footer-logo-text p { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; opacity: .7; font-family: 'Lato', sans-serif; }
+        .footer-desc { max-width: 500px; margin: 0 auto 28px; font-size: 15px; opacity: .8; line-height: 1.7; }
+        .footer-border { border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px; }
+        .footer-copyright { font-size: 13px; opacity: .55; }
+
+        /* ========== FLOATING SOCIAL ========== */
+        .social-float {
+            position: fixed;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+        .soc-btn {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: white;
+            color: var(--primary);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,.15);
+            border: 2px solid var(--primary);
+            transition: all .3s;
+            position: relative;
+        }
+        .soc-btn:hover { transform: translateX(4px) scale(1.08); box-shadow: 0 6px 20px rgba(38,82,46,.28); }
+        .soc-btn.fb:hover { background: #1877f2; border-color: #1877f2; color: white; }
+        .soc-btn.ig:hover { background: linear-gradient(45deg,#f09433,#d62976,#962fbf,#4f5bd5); border-color: transparent; color: white; }
+        .soc-btn.em:hover { background: #ea4335; border-color: #ea4335; color: white; }
+        .soc-btn.wa:hover { background: #25d366; border-color: #25d366; color: white; }
+        .soc-btn.ph:hover { background: var(--primary); color: white; }
+        .soc-tooltip {
+            position: absolute; left: 58px;
+            background: var(--primary-d); color: white;
+            padding: 5px 14px; border-radius: 20px;
+            font-size: 13px; font-family: 'Lato', sans-serif; font-weight: 600;
+            white-space: nowrap;
+            opacity: 0; pointer-events: none;
+            transition: all .25s;
+        }
+        .soc-btn:hover .soc-tooltip { opacity: 1; left: 64px; }
+
+        /* ========== POPUP ========== */
+        .popup-wrap {
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+            z-index: 9999;
+            animation: slideUp .35s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translate(-50%, 20px); }
+            to   { opacity: 1; transform: translate(-50%, 0); }
+        }
+        .popup-box {
+            padding: 16px 24px;
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 40px rgba(0,0,0,.2);
+            max-width: 480px;
+            display: flex; align-items: center; gap: 12px;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        .popup-box.success { background: var(--success); }
+        .popup-box.error   { background: var(--error); }
+        .popup-box i { font-size: 22px; }
+
+        /* ========== FADE-IN ========== */
+        .fade-up { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+        .fade-up.in { opacity: 1; transform: translateY(0); }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; gap: 40px; }
+            .hero-image-wrap { display: none; }
+            .therapist-grid { grid-template-columns: 1fr; gap: 40px; }
+            .therapist-img-wrap { max-width: 320px; margin: 0 auto; }
+            .about-features { grid-template-columns: 1fr 1fr; }
+            .gallery-featured { grid-template-columns: 1fr; height: auto; }
+            .gallery-small { grid-template-columns: 1fr 1fr; }
+            .gallery-item { height: 220px; }
+            .gallery-featured > .gallery-item { height: 320px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            section { padding: 56px 0; }
+            .about-features { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .form-group.full { grid-column: span 1; }
+            .info-grid { grid-template-columns: 1fr; }
+            .booking-form, .about-content { padding: 24px 20px; }
+            .therapist-grid, .service-card-header { padding: 28px 20px; }
+            .service-items { padding: 0 20px 24px; }
+            .gallery-featured { grid-template-columns: 1fr; }
+            .gallery-small { grid-template-columns: 1fr; }
+            .social-float { display: none; }
+            .hero-container { text-align: center; }
+            .hero-buttons { justify-content: center; }
+            .hero-stats { justify-content: center; }
+        }
+
+        /* Sticky nav – mobile slide-in */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0; right: -100%;
+                width: 78%; max-width: 340px;
+                height: 100vh;
+                background: white;
+                flex-direction: column !important;
+                display: flex !important;
+                padding: 90px 28px 40px;
+                gap: 20px !important;
+                z-index: 250;
+                box-shadow: -6px 0 30px rgba(0,0,0,.15);
+                transition: right .3s ease;
+            }
+            .nav-links.open { right: 0; }
+            .nav-links a { font-size: 17px; padding: 10px 0; border-bottom: 1px solid var(--pale); color: var(--dark) !important; }
+            .nav-links .nav-cta { border: none; padding: 14px 24px; text-align: center; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== TOP BAR ========== -->
+<div class="top-bar">
+    <p>
+        <i class="fas fa-phone-alt"></i>
+        Zadzwoń i umów się:&nbsp;<a href="tel:+48601064332"><strong>601 064 332</strong></a>
+        &nbsp;|&nbsp;
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="https://maps.app.goo.gl/jPF9UhY2uBkEjwQ38" target="_blank">Wadowice, ul. Lwowska 16</a>
+    </p>
+</div>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="mainNav">
+    <div class="nav-container">
+        <div class="logo">
+            <div class="logo-icon">
+                <div class="logo-icon-fallback"><i class="fas fa-spa"></i></div>
+            </div>
+            <div class="logo-text">
+                <h1>Poczuj więcej</h1>
+                <p>Access Bars Therapy</p>
+            </div>
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#terapeutka">O Access Bars</a>
+            <a href="#uslugi">Oferta</a>
+            <a href="#galeria">Galeria</a>
+            <a href="promotions.html">Promocje</a>
+            <a href="#godziny">Godziny</a>
+            <a href="#zapisy" class="nav-cta">Zapisy Online</a>
+        </div>
+
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-container">
+        <div class="hero-content fade-up">
+            <div class="hero-badge">
+                <span></span>Certyfikowana terapia Access Consciousness®
+            </div>
+            <h2>Reset głowy –<br><em>lekkość, która zostaje</em></h2>
+            <p class="hero-sub">
+                Uwolnij się od natłoku myśli, codziennego stresu i napięć.<br>
+                Otwórz się na głęboki relaks i wewnętrzny spokój.
+            </p>
+            <div class="hero-buttons">
+                <a href="#zapisy" class="btn-primary"><i class="fas fa-calendar-check"></i>Umów wizytę</a>
+                <a href="#uslugi" class="btn-outline"><i class="fas fa-list"></i>Zobacz ofertę</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-num">500+</div>
+                    <div class="hero-stat-label">Sesji</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">6 lat</div>
+                    <div class="hero-stat-label">Doświadczenia</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">100%</div>
+                    <div class="hero-stat-label">Certyfikat</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image-wrap fade-up" style="transition-delay:.15s">
+            <div class="hero-image-frame">
+                <img src="./pictures/martaspatient.png" alt="Sesja Access Bars – redukcja stresu i napięć" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="hero-image-placeholder" style="display:none">
+                    <i class="fas fa-spa"></i>
+                    <p>Redukcja stresu i napięć</p>
+                </div>
+            </div>
+            <div class="hero-card-float">
+                <div class="hero-card-float-icon"><i class="fas fa-star"></i></div>
+                <div class="hero-card-float-text">
+                    <strong>5.0 / 5.0</strong>
+                    <span>Ocena klientów ⭐⭐⭐⭐⭐</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ========== THERAPIST SECTION ========== -->
+<section class="therapist-section" id="terapeutka">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="section-label">Twoja terapeutka</div>
+            <h3>Poznaj <span>Martę</span></h3>
+            <div class="divider"></div>
+        </div>
+        <div class="therapist-grid fade-up">
+            <div class="therapist-img-wrap">
+                <img src="./pictures/marta.png" alt="Marta Mądry-Wolak – certyfikowana praktyczka Access Bars w Wadowicach" class="therapist-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="therapist-img-placeholder" style="display:none">
+                    <i class="fas fa-user-circle"></i>
+                    <p>Marta Mądry-Wolak</p>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-certificate"></i>
+                    <span>Certyfikowana<br>Praktyczka<br>Access®</span>
+                </div>
+            </div>
+            <div class="therapist-info">
+                <h2>Marta Mądry-Wolak</h2>
+                <h3>Certyfikowana praktyczka Access Consciousness®</h3>
+                <p>Z pasją i zaangażowaniem pomagam ludziom odnaleźć wewnętrzny spokój i lekkość. Moja przygoda z Access Bars zaczęła się kilka lat temu, kiedy sama doświadczyłam głębokiej transformacji i uwolnienia od codziennego stresu.</p>
+                <p>Dziś, jako certyfikowana praktyczka, prowadzę przez proces odkrywania nowych możliwości i zmiany ograniczających przekonań. Każda sesja to dla mnie wyjątkowe spotkanie, podczas którego tworzę bezpieczną przestrzeń do relaksu i regeneracji.</p>
+                <p>Pracuję z kobietami, mężczyznami i dziećmi, pomagając im w redukcji stresu, poprawie jakości snu i odzyskaniu wewnętrznej równowagi.</p>
+                <div class="therapist-signature">
+                    „Bo Twój komfort i spokój są najważniejsze"
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== ABOUT ACCESS BARS ========== -->
+<section class="about-section">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="section-label">Czym jest terapia</div>
+            <h3>Access Bars<span>®</span></h3>
+            <div class="divider"></div>
+        </div>
+        <div class="about-content fade-up">
+            <h2>Naciśnij <span>reset</span> swojego umysłu</h2>
+            <p>Access Bars to delikatna, ale potężna technika pracy z ciałem i umysłem, polegająca na lekkim dotykaniu 32 punktów na głowie. Punkty te zawierają wszystkie myśli, idee, przekonania, emocje i postanowienia, które nagromadziły się przez całe życie.</p>
+            <p>Poprzez delikatny dotyk następuje rozładowanie napięć elektromagnetycznych w mózgu – jakbyś nacisnął przycisk „reset". Efekt? Głęboki spokój, lekkość myślenia i otwarcie na nowe możliwości.</p>
+            <div class="about-features">
+                <div class="about-feature">
+                    <i class="fas fa-brain"></i>
+                    <h4>Uwolnienie umysłu</h4>
+                    <p>Wyciszenie natłoku myśli i redukcja wewnętrznego dialogu</p>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-heart"></i>
+                    <h4>Głęboki relaks</h4>
+                    <p>Stan odprężenia porównywalny z wielogodzinną medytacją</p>
+                </div>
+                <div class="about-feature">
+                    <i class="fas fa-star"></i>
+                    <h4>Nowe możliwości</h4>
+                    <p>Otwarcie na nowe perspektywy i kreatywne rozwiązania</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="services-section" id="uslugi">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="section-label">Co oferuję</div>
+            <h3>Nasze <span>Usługi</span></h3>
+            <div class="divider"></div>
+            <p>Kompleksowa oferta zabiegów energetycznych i relaksacyjnych</p>
+        </div>
+        <div class="services-wrap fade-up">
+            <div class="service-card">
+                <div class="service-card-header">
+                    <div class="service-card-header-icon"><i class="fas fa-spa"></i></div>
+                    <div>
+                        <h4>Masaże i zabiegi relaksacyjne</h4>
+                        <p>Specjalistyczne zabiegi energetyczne Access Consciousness®</p>
+                    </div>
+                </div>
+                <ul class="service-items" id="serviceList"></ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== BOOKING FORM ========== -->
+<section class="booking-section" id="zapisy">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="section-label">Rezerwacja</div>
+            <h3>Umów <span>Wizytę</span></h3>
+            <div class="divider"></div>
+            <p>Wybierz dogodny termin, a my skontaktujemy się z potwierdzeniem</p>
+        </div>
+        <div class="booking-card fade-up">
+            <div class="booking-header">
+                <div class="booking-header-icon"><i class="fas fa-calendar-alt"></i></div>
+                <div class="booking-header-text">
+                    <h4>Rezerwacja online</h4>
+                    <p>Wypełnij formularz, a my zadzwonimy z potwierdzeniem terminu</p>
+                </div>
+            </div>
+            <form class="booking-form" id="bookingForm" novalidate>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nameInput"><i class="far fa-user"></i> Imię i Nazwisko *</label>
+                        <input id="nameInput" type="text" class="form-input" placeholder="Wprowadź imię i nazwisko" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneInput"><i class="fas fa-phone-alt"></i> Numer telefonu *</label>
+                        <input id="phoneInput" type="tel" class="form-input" placeholder="np. 601 234 567" required>
+                    </div>
+                    <div class="form-group full" style="position:relative;overflow:visible;z-index:200;">
+                        <label><i class="fas fa-spa"></i> Wybierz zabieg *</label>
+                        <div class="custom-select" id="serviceSelect">
+                            <div class="select-trigger" id="serviceSelectTrigger">
+                                <div class="select-trigger-inner">
+                                    <span class="select-placeholder" id="serviceSelectedText">Wybierz zabieg...</span>
+                                </div>
+                                <i class="fas fa-chevron-down chevron" id="serviceChevron"></i>
+                            </div>
+                            <div class="select-dropdown" id="serviceDropdown" style="display:none;"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dateInput"><i class="far fa-calendar"></i> Data wizyty *</label>
+                        <input id="dateInput" type="date" class="form-input" required>
+                    </div>
+                    <div class="form-group" style="position:relative;overflow:visible;z-index:100;">
+                        <label><i class="far fa-clock"></i> Preferowana godzina *</label>
+                        <div class="custom-select time-select" id="timeSelect">
+                            <div class="select-trigger" id="timeSelectTrigger">
+                                <div class="select-trigger-inner">
+                                    <span class="select-placeholder" id="timeSelectedText">Wybierz godzinę...</span>
+                                </div>
+                                <i class="fas fa-chevron-down chevron" id="timeChevron"></i>
+                            </div>
+                            <div class="select-dropdown" id="timeDropdown" style="display:none;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit-wrap">
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <span id="submitText">Wyślij rezerwację</span>
+                    </button>
+                    <p class="form-note">Klikając przycisk, wyrażasz zgodę na przetwarzanie danych w celu realizacji rezerwacji.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- ========== GALLERY ========== -->
+<section class="gallery-section" id="galeria">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="section-label">Przestrzeń</div>
+            <h3>Nasze <span>wnętrze</span></h3>
+            <div class="divider"></div>
+        </div>
+        <div class="gallery-featured fade-up">
+            <div class="gallery-item gallery-main" onclick="openLightbox('./pictures/patient.png')">
+                <img src="./pictures/patient.png" alt="Główny gabinet Access Bars w Wadowicach" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <div class="gallery-item-placeholder"><i class="fas fa-spa"></i><p>Główny gabinet</p></div>
+                <div class="gallery-overlay"><h4>Główny gabinet</h4><p>Serce naszego miejsca – tu odbywają się sesje</p></div>
+            </div>
+            <div class="gallery-small">
+                <div class="gallery-item" onclick="openLightbox('./pictures/gabinet.png')">
+                    <img src="./pictures/gabinet.png" alt="Strefa relaksu w gabinecie Access Bars" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="gallery-item-placeholder"><i class="fas fa-couch"></i><p>Strefa relaksu</p></div>
+                    <div class="gallery-overlay"><h4>Strefa relaksu</h4><p>Odpocznij przed sesją</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('./pictures/oils.png')">
+                    <img src="./pictures/oils.png" alt="Naturalne olejki eteryczne do aromaterapii" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="gallery-item-placeholder"><i class="fas fa-leaf"></i><p>Aromaterapia</p></div>
+                    <div class="gallery-overlay"><h4>Aromaterapia</h4><p>Naturalne olejki eteryczne</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('./pictures/martaspatient.png')">
+                    <img src="./pictures/martaspatient.png" alt="Sesja Access Bars – terapia z Martą" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="gallery-item-placeholder"><i class="fas fa-hands"></i><p>Sesja terapeutyczna</p></div>
+                    <div class="gallery-overlay"><h4>Sesja terapeutyczna</h4><p>W dobrych rękach</p></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('./pictures/gabinet.png')">
+                    <img src="./pictures/gabinet.png" alt="Przestrzeń gabinetu wellness" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="gallery-item-placeholder"><i class="fas fa-seedling"></i><p>Zielona przestrzeń</p></div>
+                    <div class="gallery-overlay"><h4>Przestrzeń</h4><p>Przyjazna i spokojna atmosfera</p></div>
+                </div>
+            </div>
+        </div>
+        <p class="gallery-hint fade-up"><i class="fas fa-camera" style="color:var(--primary);margin-right:6px;"></i>Kliknij na zdjęcie, aby powiększyć</p>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+    <img id="lightboxImg" src="" alt="Powiększone zdjęcie galerii">
+</div>
+
+<!-- ========== INFO SECTION ========== -->
+<section class="info-section" id="godziny">
+    <div class="container">
+        <div class="section-header fade-up">
+            <div class="section-label">Informacje</div>
+            <h3>Znajdź <span>nas</span></h3>
+            <div class="divider"></div>
+        </div>
+        <div class="info-grid fade-up">
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h5>Lokalizacja</h5>
+                <p>ul. Lwowska 16
+34-100 Wadowice
+<a href="https://maps.app.goo.gl/jPF9UhY2uBkEjwQ38" target="_blank" style="color:var(--primary);font-weight:700;">→ Pokaż na mapie</a></p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon"><i class="far fa-clock"></i></div>
+                <h5>Godziny otwarcia</h5>
+                <p>Poniedziałek – Piątek:
+09:00 – 18:00
+
+Sobota: po umówieniu</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                <h5>Kontakt</h5>
+                <p><a href="tel:+48601064332" style="color:var(--primary);font-size:20px;font-weight:700;">601 064 332</a>
+
+<a href="/cdn-cgi/l/email-protection#8be0e4e5ffeae0ffcbfbe4e8f1fee1fce2eee8eee1a5fbe7" style="color:var(--primary);font-weight:600;"><span class="__cf_email__" data-cfemail="8de6e2e3f9ece6f9cdfde2eef7f8e7fae4e8eee8e7a3fde1">[email&#160;protected]</span></a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-logo">
+            <div class="footer-logo-icon"><i class="fas fa-spa"></i></div>
+            <div class="footer-logo-text">
+                <h2>Poczuj więcej</h2>
+                <p>Access Bars Therapy</p>
+            </div>
+        </div>
+        <p class="footer-desc">Profesjonalne sesje Access Bars i terapie energetyczne. Doświadcz głębokiego relaksu i uwolnienia od codziennego stresu.</p>
+        <div class="footer-border">
+            <p class="footer-copyright">© <span id="year"></span> Poczuj więcej – Access Bars Therapy, Wadowice. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== FLOATING SOCIAL ========== -->
+<div class="social-float">
+    <a href="https://facebook.com/twojprofil" target="_blank" class="soc-btn fb" title="Facebook">
+        <i class="fab fa-facebook-f"></i>
+        <span class="soc-tooltip">Facebook</span>
+    </a>
+    <a href="https://instagram.com/twojprofil" target="_blank" class="soc-btn ig" title="Instagram">
+        <i class="fab fa-instagram"></i>
+        <span class="soc-tooltip">Instagram</span>
+    </a>
+    <a href="/cdn-cgi/l/email-protection#b0dbdfdec4d1dbc4f0c0dfd3cac5dac7d9d5d3d5da9ec0dc" class="soc-btn em" title="E-mail">
+        <i class="fas fa-envelope"></i>
+        <span class="soc-tooltip">E-mail</span>
+    </a>
+    <a href="https://wa.me/48601064332" target="_blank" class="soc-btn wa" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="soc-tooltip">WhatsApp</span>
+    </a>
+    <a href="tel:+48601064332" class="soc-btn ph" title="Zadzwoń">
+        <i class="fas fa-phone-alt"></i>
+        <span class="soc-tooltip">Zadzwoń</span>
+    </a>
+</div>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    // --- DANE USŁUG ---
+    const WEB3FORMS_KEY = 'e7309547-0861-45dd-98a7-508f8b1820b7';
+
+    const SERVICES = [
+        { name: "Masaż Access Bars",               price: 100, duration: "60 min" },
+        { name: "Access Facelift",                  price: 100, duration: "45 min" },
+        { name: "Access Body – MTVSS",              price: 120, duration: "60 min" },
+        { name: "Zerowa Suma Traum",                price: 90,  duration: "45 min" },
+        { name: "Energetyczna Korekta Widzenia",    price: 150, duration: "90 min" },
+        { name: "Odnowa Priopercepcji i inne",      price: 200, duration: "90 min" }
+    ];
+
+    // Stan
+    const state = {
+        selectedService: null,
+        selectedTime: null,
+        serviceOpen: false,
+        timeOpen: false,
+        menuOpen: false,
+        loading: false
+    };
+
+    // --- FOOTER YEAR ---
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // --- MIN DATE ---
+    document.getElementById('dateInput').min = new Date().toISOString().split('T')[0];
+
+    // --- RENDER SERVICES LIST ---
+    function renderServiceList() {
+        const ul = document.getElementById('serviceList');
+        ul.innerHTML = SERVICES.map(s => `
+            <li class="service-item">
+                <div class="service-item-row">
+                    <div class="service-item-info">
+                        <h5>${s.name}</h5>
+                        <div class="service-meta">
+                            <span class="service-meta-chip"><i class="far fa-clock"></i>${s.duration}</span>
+                        </div>
+                    </div>
+                    <div class="service-price-box">
+                        <div class="price">od ${s.price} zł</div>
+                        <button class="btn-select" data-name="${s.name}">Wybierz</button>
+                    </div>
+                </div>
+            </li>
+        `).join('');
+
+        ul.querySelectorAll('.btn-select').forEach(btn => {
+            btn.addEventListener('click', () => {
+                selectService(btn.dataset.name);
+                document.getElementById('zapisy').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    }
+
+    // --- RENDER SERVICE DROPDOWN ---
+    function renderServiceDropdown() {
+        const dd = document.getElementById('serviceDropdown');
+        dd.innerHTML = `
+            <div class="select-group-header"><i class="fas fa-spa"></i>&nbsp;Zabiegi relaksacyjne</div>
+            ${SERVICES.map(s => `
+                <div class="select-option${state.selectedService === s.name ? ' selected' : ''}" data-service="${s.name}">
+                    <div class="select-option-row">
+                        <div>
+                            <h6>${s.name}</h6>
+                            <div class="select-option-dur">${s.duration}</div>
+                        </div>
+                        <div class="select-option-price">od ${s.price} zł</div>
+                    </div>
+                </div>
+            `).join('')}
+        `;
+        dd.querySelectorAll('.select-option').forEach(opt => {
+            opt.addEventListener('click', e => {
+                e.stopPropagation();
+                selectService(opt.dataset.service);
+            });
+        });
+    }
+
+    function selectService(name) {
+        state.selectedService = name;
+        state.serviceOpen = false;
+        const found = SERVICES.find(s => s.name === name);
+        const triggerInner = document.getElementById('serviceSelectTrigger').querySelector('.select-trigger-inner');
+        triggerInner.innerHTML = found
+            ? `<div>
+                <div class="select-chosen-name">${found.name}</div>
+                <div class="select-chosen-meta">${found.duration} · od ${found.price} zł</div>
+               </div>`
+            : `<span class="select-placeholder">Wybierz zabieg...</span>`;
+        closeAllDropdowns();
+    }
+
+    // --- RENDER TIME DROPDOWN ---
+    function buildTimes() {
+        const times = [];
+        for (let h = 9; h <= 18; h++) {
+            for (let m = 0; m < 60; m += 15) {
+                if (h === 18 && m > 0) continue;
+                times.push(`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);
+            }
+        }
+        return times;
+    }
+
+    function renderTimeDropdown() {
+        const dd = document.getElementById('timeDropdown');
+        const times = buildTimes();
+        const morning   = times.filter(t => parseInt(t) < 12);
+        const afternoon = times.filter(t => parseInt(t) >= 12 && parseInt(t) < 15);
+        const evening   = times.filter(t => parseInt(t) >= 15);
+
+        function group(label, icon, arr) {
+            return `
+                <div class="time-group-label"><i class="${icon}"></i>${label}</div>
+                <div class="time-grid-wrap">
+                    ${arr.map(t => `<div class="time-chip${state.selectedTime === t ? ' selected' : ''}" data-time="${t}">${t}</div>`).join('')}
+                </div>
+            `;
+        }
+
+        dd.innerHTML = group('Poranek','far fa-sun', morning)
+                     + group('Popołudnie','fas fa-cloud-sun', afternoon)
+                     + group('Wieczór','fas fa-moon', evening);
+
+        dd.querySelectorAll('.time-chip').forEach(chip => {
+            chip.addEventListener('click', e => {
+                e.stopPropagation();
+                selectTime(chip.dataset.time);
+            });
+        });
+    }
+
+    function selectTime(t) {
+        state.selectedTime = t;
+        state.timeOpen = false;
+        const inner = document.getElementById('timeSelectTrigger').querySelector('.select-trigger-inner');
+        inner.innerHTML = t
+            ? `<div><span class="select-chosen-name"><i class="far fa-clock" style="color:var(--primary);margin-right:6px;"></i>${t}</span></div>`
+            : `<span class="select-placeholder">Wybierz godzinę...</span>`;
+        closeAllDropdowns();
+    }
+
+    // --- TOGGLE DROPDOWNS ---
+    function closeAllDropdowns() {
+        state.serviceOpen = false;
+        state.timeOpen = false;
+        document.getElementById('serviceDropdown').style.display = 'none';
+        document.getElementById('timeDropdown').style.display = 'none';
+        document.getElementById('serviceChevron').classList.remove('open');
+        document.getElementById('timeChevron').classList.remove('open');
+        document.getElementById('serviceSelectTrigger').classList.remove('active');
+        document.getElementById('timeSelectTrigger').classList.remove('active');
+    }
+
+    document.getElementById('serviceSelectTrigger').addEventListener('click', e => {
+        e.stopPropagation();
+        if (state.serviceOpen) { closeAllDropdowns(); return; }
+        closeAllDropdowns();
+        state.serviceOpen = true;
+        renderServiceDropdown();
+        document.getElementById('serviceDropdown').style.display = 'block';
+        document.getElementById('serviceChevron').classList.add('open');
+        document.getElementById('serviceSelectTrigger').classList.add('active');
+    });
+
+    document.getElementById('timeSelectTrigger').addEventListener('click', e => {
+        e.stopPropagation();
+        if (state.timeOpen) { closeAllDropdowns(); return; }
+        closeAllDropdowns();
+        state.timeOpen = true;
+        renderTimeDropdown();
+        document.getElementById('timeDropdown').style.display = 'block';
+        document.getElementById('timeChevron').classList.add('open');
+        document.getElementById('timeSelectTrigger').classList.add('active');
+    });
+
+    document.addEventListener('click', e => {
+        if (!e.target.closest('#serviceSelect') && !e.target.closest('#timeSelect')) {
+            closeAllDropdowns();
+        }
+    });
+
+    // --- BOOKING FORM SUBMIT ---
+    document.getElementById('bookingForm').addEventListener('submit', async e => {
+        e.preventDefault();
+        const name  = document.getElementById('nameInput').value.trim();
+        const phone = document.getElementById('phoneInput').value.trim();
+        const date  = document.getElementById('dateInput').value;
+
+        if (!name || !phone || !state.selectedService || !date || !state.selectedTime) {
+            showPopup('Wypełnij wszystkie pola formularza.', 'error');
+            return;
+        }
+
+        state.loading = true;
+        const btn = document.getElementById('submitBtn');
+        const txt = document.getElementById('submitText');
+        btn.disabled = true;
+        txt.innerHTML = '<span class="loader"></span> Wysyłanie...';
+
+        try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_KEY,
+                    name, phone,
+                    service: state.selectedService,
+                    date,
+                    time: state.selectedTime,
+                    subject: `Nowa rezerwacja – ${state.selectedService}`
+                })
+            });
+            const json = await res.json();
+            if (json.success) {
+                showPopup('Dziękujemy! Rezerwacja wysłana. Zadzwonimy z potwierdzeniem w ciągu 24 godzin.', 'success');
+                document.getElementById('bookingForm').reset();
+                state.selectedService = null; state.selectedTime = null;
+                selectService(null); selectTime(null);
+            } else {
+                showPopup('Coś poszło nie tak. Spróbuj ponownie.', 'error');
+            }
+        } catch {
+            showPopup('Błąd połączenia z serwerem.', 'error');
+        }
+
+        btn.disabled = false;
+        txt.innerHTML = 'Wyślij rezerwację';
+        state.loading = false;
+    });
+
+    // --- POPUP ---
+    function showPopup(msg, type) {
+        const el = document.createElement('div');
+        el.className = 'popup-wrap';
+        el.innerHTML = `<div class="popup-box ${type}">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            ${msg}
+        </div>`;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), type === 'success' ? 6000 : 4000);
+    }
+
+    // --- MOBILE MENU ---
+    const hamburger  = document.getElementById('hamburgerBtn');
+    const navLinks   = document.getElementById('navLinks');
+    const overlay    = document.getElementById('mobileOverlay');
+
+    function toggleMenu(open) {
+        state.menuOpen = open !== undefined ? open : !state.menuOpen;
+        hamburger.classList.toggle('open', state.menuOpen);
+        navLinks.classList.toggle('open', state.menuOpen);
+        overlay.classList.toggle('show', state.menuOpen);
+    }
+
+    hamburger.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
+    overlay.addEventListener('click', () => toggleMenu(false));
+    navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => toggleMenu(false));
+    });
+
+    // --- LIGHTBOX ---
+    function openLightbox(src) {
+        const lb = document.getElementById('lightbox');
+        const img = document.getElementById('lightboxImg');
+        img.src = src;
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e) {
+        if (e) e.stopPropagation();
+        document.getElementById('lightbox').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // --- SMOOTH SCROLL ---
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+
+    // --- FADE-IN ON SCROLL ---
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('in'), i * 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // --- INIT ---
+    renderServiceList();
+</script>
+</body>
+</html>
