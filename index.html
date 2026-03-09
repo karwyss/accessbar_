@@ -728,6 +728,56 @@
         .time-chip:hover { background: var(--secondary); transform: translateY(-1px); }
         .time-chip.selected { background: var(--primary); color: white; border-color: var(--primary); }
 
+        /* Date Picker */
+        .date-select { position: relative; z-index: 9998; }
+        .date-nav {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 14px 16px 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .date-nav-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px; font-weight: 600;
+            color: var(--dark); text-transform: capitalize;
+        }
+        .date-nav-btn {
+            width: 30px; height: 30px;
+            border: none; background: var(--pale);
+            border-radius: 8px; cursor: pointer;
+            color: var(--dark); font-size: 12px;
+            display: flex; align-items: center; justify-content: center;
+            transition: background .2s;
+        }
+        .date-nav-btn:hover { background: var(--secondary); }
+        .date-weekdays {
+            display: grid; grid-template-columns: repeat(7,1fr);
+            padding: 10px 12px 4px;
+            gap: 4px;
+        }
+        .date-weekdays span {
+            text-align: center; font-size: 11px;
+            font-weight: 700; color: var(--primary);
+            letter-spacing: .06em; text-transform: uppercase;
+        }
+        .date-grid {
+            display: grid; grid-template-columns: repeat(7,1fr);
+            gap: 4px; padding: 4px 12px 14px;
+        }
+        .date-day {
+            text-align: center; padding: 8px 4px;
+            border-radius: 8px; cursor: pointer;
+            font-size: 14px; font-weight: 500; color: var(--dark);
+            border: 1.5px solid transparent;
+            transition: all .2s;
+        }
+        .date-day:hover:not(.disabled):not(.empty) { background: var(--secondary); }
+        .date-day.today { border-color: var(--primary-l); color: var(--primary); font-weight: 700; }
+        .date-day.selected { background: var(--primary); color: white; border-color: var(--primary); }
+        .date-day.disabled { color: #ccc; cursor: not-allowed; }
+        .date-day.empty { cursor: default; }
+        .date-day.sunday { color: #c0a0a0; }
+        .date-day.sunday.selected { color: white; }
+
         /* Submit */
         .submit-wrap { text-align: center; }
         .btn-submit {
@@ -1242,9 +1292,28 @@
                             <div class="select-dropdown" id="serviceDropdown" style="display:none;"></div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="dateInput"><i class="far fa-calendar"></i> Data wizyty *</label>
-                        <input id="dateInput" type="date" class="form-input" required>
+                    <div class="form-group" style="position:relative;overflow:visible;z-index:99998;">
+                        <label><i class="far fa-calendar"></i> Data wizyty *</label>
+                        <div class="custom-select date-select" id="dateSelect">
+                            <div class="select-trigger" id="dateSelectTrigger">
+                                <div class="select-trigger-inner">
+                                    <span class="select-placeholder" id="dateSelectedText">Wybierz datę...</span>
+                                </div>
+                                <i class="fas fa-chevron-down chevron" id="dateChevron"></i>
+                            </div>
+                            <div class="select-dropdown" id="dateDropdown" style="display:none;">
+                                <div class="date-nav">
+                                    <button type="button" class="date-nav-btn" id="datePrevMonth"><i class="fas fa-chevron-left"></i></button>
+                                    <span class="date-nav-title" id="dateNavTitle"></span>
+                                    <button type="button" class="date-nav-btn" id="dateNextMonth"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="date-weekdays">
+                                    <span>Pn</span><span>Wt</span><span>Śr</span><span>Cz</span><span>Pt</span><span>So</span><span>Nd</span>
+                                </div>
+                                <div class="date-grid" id="dateGrid"></div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="dateInput" required>
                     </div>
                     <div class="form-group" style="position:relative;overflow:visible;z-index:99999;">
                         <label><i class="far fa-clock"></i> Preferowana godzina *</label>
@@ -1420,8 +1489,68 @@ Sobota: po umówieniu</p>
     // --- FOOTER YEAR ---
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // --- MIN DATE ---
-    document.getElementById('dateInput').min = new Date().toISOString().split('T')[0];
+    // --- CUSTOM DATE PICKER ---
+    const MONTHS_PL = ['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
+    let dpState = { year: new Date().getFullYear(), month: new Date().getMonth(), selected: null };
+
+    function renderDateGrid() {
+        const today = new Date(); today.setHours(0,0,0,0);
+        const { year, month, selected } = dpState;
+        document.getElementById('dateNavTitle').textContent = MONTHS_PL[month] + ' ' + year;
+        const firstDay = new Date(year, month, 1).getDay(); // 0=Sun
+        const offset = (firstDay === 0) ? 6 : firstDay - 1; // Mon-based
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        let html = '';
+        for (let i = 0; i < offset; i++) html += '<div class="date-day empty"></div>';
+        for (let d = 1; d <= daysInMonth; d++) {
+            const date = new Date(year, month, d);
+            const isSun = date.getDay() === 0;
+            const isPast = date < today;
+            const isToday = date.getTime() === today.getTime();
+            const isSel = selected && date.toDateString() === selected.toDateString();
+            const cls = ['date-day', isSun ? 'sunday' : '', isPast ? 'disabled' : '', isToday ? 'today' : '', isSel ? 'selected' : ''].filter(Boolean).join(' ');
+            const val = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+            html += `<div class="${cls}" data-date="${val}" data-disabled="${isPast}">${d}</div>`;
+        }
+        document.getElementById('dateGrid').innerHTML = html;
+        document.querySelectorAll('.date-day:not(.empty):not(.disabled)').forEach(el => {
+            el.addEventListener('click', () => {
+                const val = el.dataset.date;
+                const [y,m,dd] = val.split('-').map(Number);
+                dpState.selected = new Date(y, m-1, dd);
+                document.getElementById('dateInput').value = val;
+                const formatted = dpState.selected.toLocaleDateString('pl-PL', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+                const trigger = document.getElementById('dateSelectTrigger');
+                trigger.querySelector('.select-placeholder') && (trigger.querySelector('.select-placeholder').outerHTML = `<span class="select-chosen-name" id="dateSelectedText">${formatted}</span>`);
+                document.getElementById('dateSelectedText') && (document.getElementById('dateSelectedText').textContent = formatted);
+                document.getElementById('dateDropdown').style.display = 'none';
+                document.getElementById('dateChevron').classList.remove('open');
+                renderDateGrid();
+            });
+        });
+    }
+
+    document.getElementById('dateSelectTrigger').addEventListener('click', e => {
+        e.stopPropagation();
+        const dd = document.getElementById('dateDropdown');
+        const isOpen = dd.style.display !== 'none';
+        closeAllDropdowns();
+        if (!isOpen) {
+            dd.style.display = 'block';
+            document.getElementById('dateChevron').classList.add('open');
+            renderDateGrid();
+        }
+    });
+    document.getElementById('datePrevMonth').addEventListener('click', e => {
+        e.stopPropagation();
+        dpState.month--; if (dpState.month < 0) { dpState.month = 11; dpState.year--; }
+        renderDateGrid();
+    });
+    document.getElementById('dateNextMonth').addEventListener('click', e => {
+        e.stopPropagation();
+        dpState.month++; if (dpState.month > 11) { dpState.month = 0; dpState.year++; }
+        renderDateGrid();
+    });
 
     // --- RENDER SERVICES LIST ---
     function renderServiceList() {
@@ -1546,10 +1675,13 @@ Sobota: po umówieniu</p>
         state.timeOpen = false;
         document.getElementById('serviceDropdown').style.display = 'none';
         document.getElementById('timeDropdown').style.display = 'none';
+        document.getElementById('dateDropdown').style.display = 'none';
         document.getElementById('serviceChevron').classList.remove('open');
         document.getElementById('timeChevron').classList.remove('open');
+        document.getElementById('dateChevron').classList.remove('open');
         document.getElementById('serviceSelectTrigger').classList.remove('active');
         document.getElementById('timeSelectTrigger').classList.remove('active');
+        document.getElementById('dateSelectTrigger').classList.remove('active');
     }
 
     document.getElementById('serviceSelectTrigger').addEventListener('click', e => {
