@@ -327,6 +327,7 @@
             box-shadow: var(--shadow-md);
             display: flex; align-items: center; gap: 12px;
             min-width: 200px;
+            z-index: 2;
         }
         .hero-card-float-icon {
             width: 44px; height: 44px;
@@ -540,10 +541,16 @@
             justify-content: space-between;
             align-items: center;
             gap: 16px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+        }
+        .service-item-info {
+            flex: 1;
+            min-width: 0;
         }
         .service-item-info h5 {
             font-size: 18px; font-weight: 600; color: var(--dark); margin-bottom: 6px;
+            white-space: normal;
+            word-break: break-word;
         }
         .service-meta {
             display: flex; align-items: center; gap: 8px;
@@ -555,12 +562,20 @@
             padding: 4px 12px;
             border-radius: 30px;
             font-size: 13px; font-weight: 500;
+            white-space: nowrap;
         }
-        .service-price-box { text-align: right; }
+        .service-price-box {
+            text-align: right;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+        }
         .service-price-box .price {
-            font-size: 22px; font-weight: 700; color: var(--primary);
+            font-size: 20px; font-weight: 700; color: var(--primary);
             font-family: 'Playfair Display', serif;
-            margin-bottom: 6px;
+            white-space: nowrap;
         }
         .btn-select {
             padding: 9px 22px;
@@ -590,8 +605,6 @@
             overflow: visible;
             max-width: 900px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .booking-header {
@@ -1015,7 +1028,8 @@
         /* ========== RESPONSIVE ========== */
         @media (max-width: 1024px) {
             .hero-container { grid-template-columns: 1fr; gap: 40px; }
-            .hero-image-wrap { display: none; }
+            .hero-image-wrap { display: none !important; visibility: hidden !important; }
+            .hero-card-float { display: none !important; visibility: hidden !important; }
             .therapist-grid { grid-template-columns: 1fr; gap: 40px; }
             .therapist-img-wrap { max-width: 320px; margin: 0 auto; }
             .about-features { grid-template-columns: 1fr 1fr; }
@@ -1035,23 +1049,23 @@
             .info-grid { grid-template-columns: 1fr; }
             .booking-form, .about-content { padding: 24px 20px; }
             .therapist-grid, .service-card-header { padding: 28px 20px; }
-            .service-items { padding: 0 20px 24px; }
+            .service-items { padding: 0 16px 24px; }
+            .service-item-row { gap: 10px; }
+            .service-item-info h5 { font-size: 15px; }
+            .service-price-box .price { font-size: 17px; }
+            .btn-select { padding: 8px 14px; font-size: 13px; }
             .gallery-featured { grid-template-columns: 1fr; }
             .gallery-small { grid-template-columns: 1fr; }
             .social-float { display: none; }
             .hero-container { text-align: center; }
             .hero-buttons { justify-content: center; }
             .hero-stats { justify-content: center; }
-            /* Mobile dropdown z-index fix: stacked form groups need correct order */
             .form-grid .form-group:nth-child(1) { z-index: 400; }
             .form-grid .form-group:nth-child(2) { z-index: 300; }
             .form-grid .form-group:nth-child(3) { z-index: 500 !important; }
             .form-grid .form-group:nth-child(4) { z-index: 200 !important; }
             .form-grid .form-group:nth-child(5) { z-index: 100 !important; }
-            /* Dropdowns should always be on top */
-            .select-dropdown { z-index: 99999 !important; }
-            /* Limit dropdown height on mobile */
-            .select-dropdown { max-height: 280px; }
+            .select-dropdown { z-index: 99999 !important; max-height: 280px; }
         }
 
         /* Sticky nav – mobile slide-in */
