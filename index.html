@@ -585,7 +585,7 @@
         }
 
         /* ========== BOOKING FORM ========== */
-        .booking-section { background: var(--sand); }
+        .booking-section { background: var(--sand); position: relative; z-index: 10; }
 
         .booking-card {
             background: white;
@@ -705,7 +705,7 @@
         .select-option-price { font-size: 15px; color: var(--primary); font-weight: 700; font-family: 'Playfair Display', serif; }
 
         /* Time Grid Select */
-        .time-select { position: relative; z-index: 90; }
+        .time-select { position: relative; z-index: 9999; }
         .time-group-label {
             position: sticky; top: 0;
             background: var(--light);
@@ -763,7 +763,7 @@
         @keyframes spin { to { transform: rotate(360deg); } }
 
         /* ========== GALLERY ========== */
-        .gallery-section { background: white; overflow: hidden; }
+        .gallery-section { background: white; overflow: hidden; position: relative; z-index: 1; }
         .gallery-featured {
             display: grid;
             grid-template-columns: 1.5fr 1fr;
@@ -1246,7 +1246,7 @@
                         <label for="dateInput"><i class="far fa-calendar"></i> Data wizyty *</label>
                         <input id="dateInput" type="date" class="form-input" required>
                     </div>
-                    <div class="form-group" style="position:relative;overflow:visible;z-index:100;">
+                    <div class="form-group" style="position:relative;overflow:visible;z-index:99999;">
                         <label><i class="far fa-clock"></i> Preferowana godzina *</label>
                         <div class="custom-select time-select" id="timeSelect">
                             <div class="select-trigger" id="timeSelectTrigger">
