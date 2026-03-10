@@ -115,11 +115,11 @@
         .logo { display: flex; align-items: center; gap: 12px; }
 
         .logo-icon {
-            width: 52px; height: 52px;
+            width: 72px; height: 72px;
             display: flex; align-items: center; justify-content: center;
             flex-shrink: 0;
         }
-        .logo-icon img { width: 52px; height: 52px; object-fit: contain; }
+        .logo-icon img { width: 72px; height: 72px; object-fit: contain; }
         .logo-icon-fallback { display: none; }
 
         .logo-text h1 { font-size: 22px; font-weight: 700; color: var(--dark); line-height: 1.1; }
@@ -848,17 +848,19 @@
         }
         .gallery-item:hover { box-shadow: var(--shadow-lg); }
         .gallery-item img {
-                width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-    display: block;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .6s;
+            display: block;
         }
         .gallery-item:hover img { transform: scale(1.06); }
         .gallery-item-placeholder {
             position: absolute;
             inset: 0;
-            display: none;
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -998,7 +1000,7 @@
         /* ========== FLOATING SOCIAL ========== */
         .social-float {
             position: fixed;
-            right: 18px;
+            left: 18px;
             top: 50%;
             transform: translateY(-50%);
             display: flex;
@@ -1007,7 +1009,7 @@
             z-index: 100;
         }
         .soc-btn {
-            width: 36px; height: 36px;
+            width: 48px; height: 48px;
             border-radius: 50%;
             background: white;
             color: var(--primary);
@@ -1041,8 +1043,6 @@
             z-index: 9999;
             animation: slideUp .35s ease;
         }
-
-
         @keyframes slideUp {
             from { opacity: 0; transform: translate(-50%, 20px); }
             to   { opacity: 1; transform: translate(-50%, 0); }
@@ -1135,6 +1135,7 @@
             background: transparent;
         }
         /* If img fails to load, collapse it completely */
+        .gallery-item img { display: none !important; }
     </style>
 </head>
 <body>
@@ -1215,9 +1216,9 @@
         </div>
         <div class="hero-image-wrap fade-up" style="transition-delay:.15s">
             <div class="hero-image-frame">
-                <img src="./pictures/patient.png" alt="Główny gabinet Access Bars w Wadowicach" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                
                 <div class="hero-image-placeholder" style="display:none">
-                    <span style="font-size:36px;opacity:.5;">🌿</span>
+                    <img src="./pictures/patientwithmarta.png" alt="Marta Mądry-Wolak">
                     <p>Redukcja stresu i napięć</p>
                 </div>
             </div>
@@ -1242,7 +1243,7 @@
         </div>
         <div class="therapist-grid fade-up">
             <div class="therapist-img-wrap">
-                <img src="./pictures/marta.png" class="therapist-img" alt="Marta Mądry-Wolak" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                
                 <div class="therapist-img-placeholder" style="display:none">
                     <i class="fas fa-user-circle"></i>
                     <p>Marta Mądry-Wolak</p>
@@ -1311,7 +1312,7 @@
         <div class="services-wrap fade-up">
             <div class="service-card">
                 <div class="service-card-header">
-                    <div class="service-card-header-icon"><i class="fas fa-spa"></i></div>
+                    <div class="service-card-header-icon"><span style="font-size:36px;opacity:.5;">🌿</span></div>
                     <div>
                         <h4>Masaże i zabiegi relaksacyjne</h4>
                         <p>Specjalistyczne zabiegi energetyczne Access Consciousness®</p>
@@ -1351,7 +1352,7 @@
                         <input id="phoneInput" type="tel" class="form-input" placeholder="np. 601 234 567" required>
                     </div>
                     <div class="form-group full" style="position:relative;overflow:visible;z-index:300;">
-                        <label><i class="fas fa-spa"></i> Wybierz zabieg *</label>
+                        <label><span style="font-size:36px;opacity:.5;">🌿</span> Wybierz zabieg *</label>
                         <div class="custom-select" id="serviceSelect">
                             <div class="select-trigger" id="serviceSelectTrigger">
                                 <div class="select-trigger-inner">
@@ -1419,29 +1420,29 @@
         </div>
         <div class="gallery-featured fade-up">
             <div class="gallery-item gallery-main" onclick="openLightbox('./pictures/patient.png')">
-                <img src="./pictures/patient.png" alt="Główny gabinet Access Bars w Wadowicach" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div class="gallery-item-placeholder"><i class="fas fa-spa"></i><p>Główny gabinet</p></div>
+                
+                <div class="gallery-item-placeholder" style="display:flex"><span style="font-size:36px;opacity:.5;">🌿</span><p>Główny gabinet</p></div>
                 <div class="gallery-overlay"><h4>Główny gabinet</h4><p>Serce naszego miejsca – tu odbywają się sesje</p></div>
             </div>
             <div class="gallery-small">
                 <div class="gallery-item" onclick="openLightbox('./pictures/gabinet.png')">
-                    <img src="./pictures/gabinet.png" alt="Strefa relaksu w gabinecie Access Bars" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="gallery-item-placeholder"><i class="fas fa-couch"></i><p>Strefa relaksu</p></div>
+                    
+                    <div class="gallery-item-placeholder" style="display:flex"><span style="font-size:36px;opacity:.5;">🛋️</span><p>Strefa relaksu</p></div>
                     <div class="gallery-overlay"><h4>Strefa relaksu</h4><p>Odpocznij przed sesją</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('./pictures/oils.png')">
-                    <img src="./pictures/oils.png" alt="Naturalne olejki eteryczne do aromaterapii" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="gallery-item-placeholder"><i class="fas fa-leaf"></i><p>Aromaterapia</p></div>
+                    
+                    <div class="gallery-item-placeholder" style="display:flex"><span style="font-size:36px;opacity:.5;">🌿</span><p>Aromaterapia</p></div>
                     <div class="gallery-overlay"><h4>Aromaterapia</h4><p>Naturalne olejki eteryczne</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('./pictures/martaspatient.png')">
-                    <img src="./pictures/martaspatient.png" alt="Sesja Access Bars – terapia z Martą" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="gallery-item-placeholder"><i class="fas fa-hands"></i><p>Sesja terapeutyczna</p></div>
+                    
+                    <div class="gallery-item-placeholder" style="display:flex"><span style="font-size:36px;opacity:.5;">🙌</span><p>Sesja terapeutyczna</p></div>
                     <div class="gallery-overlay"><h4>Sesja terapeutyczna</h4><p>W dobrych rękach</p></div>
                 </div>
                 <div class="gallery-item" onclick="openLightbox('./pictures/gabinet.png')">
-                    <img src="./pictures/gabinet.png" alt="Przestrzeń gabinetu wellness" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                    <div class="gallery-item-placeholder"><i class="fas fa-seedling"></i><p>Zielona przestrzeń</p></div>
+                    
+                    <div class="gallery-item-placeholder" style="display:flex"><span style="font-size:36px;opacity:.5;">🌱</span><p>Zielona przestrzeń</p></div>
                     <div class="gallery-overlay"><h4>Przestrzeń</h4><p>Przyjazna i spokojna atmosfera</p></div>
                 </div>
             </div>
@@ -1484,6 +1485,8 @@ Sobota: po umówieniu</p>
                 <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
                 <h5>Kontakt</h5>
                 <p><a href="tel:+48601064332" style="color:var(--primary);font-size:20px;font-weight:700;">601 064 332</a>
+
+<a href="/cdn-cgi/l/email-protection#8be0e4e5ffeae0ffcbfbe4e8f1fee1fce2eee8eee1a5fbe7" style="color:var(--primary);font-weight:600;"><span class="__cf_email__" data-cfemail="8de6e2e3f9ece6f9cdfde2eef7f8e7fae4e8eee8e7a3fde1">[email&#160;protected]</span></a></p>
             </div>
         </div>
     </div>
@@ -1493,7 +1496,7 @@ Sobota: po umówieniu</p>
 <footer class="footer">
     <div class="footer-inner">
         <div class="footer-logo">
-            <div class="footer-logo-icon"><i class="fas fa-spa"></i></div>
+            <div class="footer-logo-icon"><span style="font-size:36px;opacity:.5;">🌿</span></div>
             <div class="footer-logo-text">
                 <h2>Poczuj więcej</h2>
                 <p>Access Bars Therapy</p>
