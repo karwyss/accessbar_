@@ -120,7 +120,7 @@
             flex-shrink: 0;
             transform: scale(1.3);
         }
-        .logo-icon img { width: 72px; height: 72px; object-fit: contain;}
+        .logo-icon img { width: 72px; height: 72px; object-fit: contain; }
         .logo-icon-fallback { display: none; }
 
         .logo-text h1 { font-size: 22px; font-weight: 700; color: var(--dark); line-height: 1.1; }
@@ -1853,7 +1853,7 @@ Sobota: po umówieniu</p>
         navLinks.classList.toggle('open', state.menuOpen);
         overlay.classList.toggle('show', state.menuOpen);
     }
- 
+
     hamburger.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
     overlay.addEventListener('click', () => toggleMenu(false));
     navLinks.querySelectorAll('a').forEach(a => {
