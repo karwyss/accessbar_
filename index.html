@@ -1852,7 +1852,7 @@ Sobota: po umówieniu</p>
         navLinks.classList.toggle('open', state.menuOpen);
         overlay.classList.toggle('show', state.menuOpen);
     }
-
+ 
     hamburger.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
     overlay.addEventListener('click', () => toggleMenu(false));
     navLinks.querySelectorAll('a').forEach(a => {
