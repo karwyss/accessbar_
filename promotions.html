@@ -389,16 +389,18 @@
         .footer-copyright { font-size: 13px; opacity: .55; }
 
         /* ========== FLOATING SOCIAL ========== */
-        .social-float {
-            position: fixed;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 100;
-        }
+                .social-float {
+    position: fixed;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    z-index: 100;
+    user-select: none;
+}
         .soc-btn {
             width: 36px; height: 36px;
             border-radius: 50%;
@@ -427,6 +429,35 @@
         }
         .soc-btn:hover .soc-tooltip { opacity: 1; left: 64px; }
 
+        .sf-toggle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.2);
+    border: 2px solid var(--primary);
+    transition: background .25s;
+    flex-shrink: 0;
+}
+.sf-toggle:hover { background: var(--primary-l); }
+.sf-chevron { transition: transform .3s ease; display: flex; }
+.sf-toggle.open .sf-chevron { transform: rotate(180deg); }
+.sf-items {
+    display: flex; flex-direction: column; align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    max-height: 0; opacity: 0; margin-top: 0;
+    transition: max-height .4s ease, opacity .3s ease, margin-top .3s ease;
+}
+.sf-items.open { max-height: 320px; opacity: 1; margin-top: 10px; }
+.sf-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--primary); opacity: .4;
+    margin-top: 6px; display: none;
+}
+.sf-dot.show { display: block; }
         /* ========== POPUP ========== */
         .popup-wrap {
             position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
@@ -720,11 +751,21 @@
 
 <!-- ========== FLOATING SOCIAL ========== -->
 <div class="social-float">
-    <a href="https://facebook.com/twojprofil" target="_blank" class="soc-btn fb"><i class="fab fa-facebook-f"></i><span class="soc-tooltip">Facebook</span></a>
-    <a href="https://instagram.com/twojprofil" target="_blank" class="soc-btn ig"><i class="fab fa-instagram"></i><span class="soc-tooltip">Instagram</span></a>
-    <a href="/cdn-cgi/l/email-protection#2a4145445e4b415e6a5a4549505f405d434f494f40045a46" class="soc-btn em"><i class="fas fa-envelope"></i><span class="soc-tooltip">E-mail</span></a>
-    <a href="https://wa.me/48601064332" target="_blank" class="soc-btn wa"><i class="fab fa-whatsapp"></i><span class="soc-tooltip">WhatsApp</span></a>
-    <a href="tel:+48601064332" class="soc-btn ph"><i class="fas fa-phone-alt"></i><span class="soc-tooltip">Zadzwoń</span></a>
+  <div class="sf-toggle" id="sfToggle" title="Pokaż kontakt">
+    <span class="sf-chevron" id="sfChevron">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <polyline points="2,4 6.5,9 11,4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </div>
+  <div class="sf-items" id="sfItems">
+    <a href="https://facebook.com/twojprofil" target="_blank" class="soc-btn fb" title="Facebook"><i class="fab fa-facebook-f"></i><span class="soc-tooltip">Facebook</span></a>
+    <a href="https://instagram.com/twojprofil" target="_blank" class="soc-btn ig" title="Instagram"><i class="fab fa-instagram"></i><span class="soc-tooltip">Instagram</span></a>
+    <a href="mailto:kontakt@poczujwiecej.pl" class="soc-btn em" title="E-mail"><i class="fas fa-envelope"></i><span class="soc-tooltip">E-mail</span></a>
+    <a href="https://wa.me/48601064332" target="_blank" class="soc-btn wa" title="WhatsApp"><i class="fab fa-whatsapp"></i><span class="soc-tooltip">WhatsApp</span></a>
+    <a href="tel:+48601064332" class="soc-btn ph" title="Zadzwoń"><i class="fas fa-phone-alt"></i><span class="soc-tooltip">Zadzwoń</span></a>
+  </div>
+  <div class="sf-dot" id="sfDot"></div>
 </div>
 
 <!-- ========== JAVASCRIPT ========== -->
@@ -805,6 +846,19 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        const sfToggle = document.getElementById('sfToggle');
+const sfItems = document.getElementById('sfItems');
+const sfDot = document.getElementById('sfDot');
+let sfOpen = false;
+sfDot.classList.add('show');
+sfToggle.addEventListener('click', () => {
+    sfOpen = !sfOpen;
+    sfItems.classList.toggle('open', sfOpen);
+    sfToggle.classList.toggle('open', sfOpen);
+    sfDot.classList.toggle('show', !sfOpen);
+    sfToggle.title = sfOpen ? 'Ukryj kontakt' : 'Pokaż kontakt';
+});
 </script>
 </body>
 </html>
